@@ -3,13 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BRAQZ — stay Cool!</title>
-  <meta name="description" content="BRAQZ — Crocs & Clogs in Abuja. Lightweight, water-friendly, always cool." />
+  <title>BRAQZ! — stay Cool!</title>
+  <meta name="description" content="BRAQZ — crocs & clogs in Abuja. Lightweight, water-friendly, built for everyday use. Order via WhatsApp." />
   <link rel="icon" href="assets/logo.png" />
-  <!-- Fonts + Tailwind -->
+
+  <!-- Fonts: Poppins (UI) + Baloo 2 (brand) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -23,46 +26,73 @@
       }
     }
   </script>
-  <style>html{scroll-behavior:smooth} body{font-family:Poppins,system-ui,sans-serif}</style>
+  <style>
+    html{scroll-behavior:smooth}
+    body{font-family:Poppins,system-ui,sans-serif}
+    .brand{font-family:'Baloo 2',system-ui,sans-serif; letter-spacing:.5px}
+  </style>
 </head>
 <body class="bg-sage text-olive">
-  <!-- Header -->
+
+  <!-- ===== Header (Fire icon + BRAQZ!, hamburger menu) ===== -->
   <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3">
-        <img src="assets/logo.png" alt="BRAQZ logo" class="w-10 h-10 rounded-2xl object-contain bg-white p-1 border"/>
-        <div>
-          <div class="text-lg font-extrabold tracking-wide">BRAQZ</div>
-          <div class="text-xs text-olive/70 italic">stay Cool!</div>
-        </div>
+        <!-- Use fire.png; fallback to logo.png if not present -->
+        <img src="assets/fire.png" onerror="this.src='assets/logo.png'" alt="BRAQZ fire" class="w-9 h-9 rounded-xl object-contain" />
+        <div class="brand text-xl font-extrabold tracking-wide">BRAQZ!</div>
       </a>
-      <nav class="hidden sm:flex items-center gap-6 text-sm">
-        <a href="shop.html" class="navlink">Shop</a>
-        <a href="about.html" class="navlink">About</a>
-        <a href="faq.html" class="navlink">FAQ</a>
-        <a href="contact.html" class="navlink">Contact</a>
-      </nav>
-      <a id="navWa" href="#" target="_blank" class="ml-3 inline-flex items-center gap-2 rounded-pill bg-neon text-olive text-sm px-4 py-2 font-semibold shadow-soft">WhatsApp</a>
+
+      <!-- Hamburger -->
+      <button id="menuBtn" aria-label="Open menu"
+        class="inline-flex items-center justify-center w-10 h-10 rounded-xl border text-olive hover:bg-olive hover:text-white transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+        </svg>
+      </button>
     </div>
+
+    <!-- Slide-down mobile menu -->
+    <nav id="mobileMenu" class="hidden border-t bg-white">
+      <div class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
+        <a class="py-2" href="shop.html">Shop</a>
+        <div class="grid grid-cols-3 gap-2 text-xs text-olive/80">
+          <a href="shop.html#Crocs"  class="rounded-full border px-3 py-2 text-center">Crocs</a>
+          <a href="shop.html#Clogs"  class="rounded-full border px-3 py-2 text-center">Clogs</a>
+          <a href="shop.html#Slides" class="rounded-full border px-3 py-2 text-center">Slides</a>
+        </div>
+        <a class="py-2" href="about.html">About BRAQZ!</a>
+        <a class="py-2" href="faq.html">FAQ</a>
+        <a class="py-2" href="contact.html">Contact</a>
+        <!-- Suggested future pages -->
+        <hr class="my-2">
+        <a class="py-2" href="#">Size Guide</a>
+        <a class="py-2" href="#">Returns & Delivery</a>
+        <a class="py-2" href="#">Track Order (WhatsApp)</a>
+        <a class="py-2" href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- ===== Hero ===== -->
   <section class="relative">
     <div class="max-w-6xl mx-auto px-4 pt-12 pb-12 grid md:grid-cols-2 gap-10 items-center">
       <div>
-        <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">Comfort that goes everywhere.</h1>
+        <h1 class="brand text-4xl sm:text-5xl font-extrabold leading-tight">Comfort that goes everywhere.</h1>
         <p class="mt-4 text-olive/80">Authentic-looking crocs & clogs. Lightweight, water-friendly and built for everyday use in Abuja.</p>
         <div class="mt-6 flex flex-wrap gap-3">
-          <a href="shop.html" class="inline-block rounded-2xl bg-olive text-white px-6 py-3 text-sm font-semibold shadow-soft">Browse Shop</a>
+          <a href="shop.html" class="inline-block rounded-2xl bg-olive text-white px-6 py-3 text-sm font-semibold shadow-soft hover:scale-105 transition">Browse Shop</a>
           <a id="heroWa" href="#" target="_blank" class="inline-block rounded-2xl border-2 border-olive text-olive px-6 py-3 text-sm font-semibold hover:bg-olive hover:text-white transition">Order on WhatsApp</a>
         </div>
         <div class="mt-4 text-xs text-olive/70">Free in-town delivery on orders ₦100,000+</div>
       </div>
-      <img src="assets/logo.png" alt="BRAQZ logo" class="rounded-2xl border shadow-soft w-full max-w-sm mx-auto bg-white p-4" />
+
+      <!-- Clean logo (no white frame) -->
+      <img src="assets/logo.png" alt="BRAQZ logo" class="rounded-2xl shadow-soft w-full max-w-sm mx-auto" />
     </div>
   </section>
 
-  <!-- Featured categories -->
+  <!-- ===== Featured categories ===== -->
   <section class="py-8">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-xl font-semibold mb-4">Shop by Category</h2>
@@ -83,7 +113,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ===== Footer ===== -->
   <footer class="border-t bg-white">
     <div class="max-w-6xl mx-auto px-4 py-8 text-sm flex items-center justify-between">
       <div>© <span id="year"></span> BRAQZ. All rights reserved.</div>
@@ -91,9 +121,20 @@
     </div>
   </footer>
 
+  <!-- Floating WhatsApp -->
   <a id="floatWa" href="#" target="_blank" class="fixed bottom-5 right-5 rounded-pill bg-neon text-olive px-5 py-3 shadow-soft text-sm font-semibold">Chat on WhatsApp</a>
 
-  <!-- Shared JS (kept relative so it works on Netlify & GitHub Pages) -->
+  <!-- Shared JS (WhatsApp wiring, menu toggle, year, active nav) -->
   <script src="assets/app.js"></script>
+  <script>
+    // Simple guard in case app.js isn't loaded
+    (function(){
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if(menuBtn && mobileMenu){
+        menuBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'));
+      }
+    })();
+  </script>
 </body>
 </html>
