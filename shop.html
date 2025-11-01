@@ -1,1 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shop — BRAQZ</title>
+  <link rel="icon" href="assets/logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{fontFamily:{sans:['Poppins','ui-sans-serif','system-ui']},extend:{colors:{olive:'#3a4a2b',sage:'#c9d1b4',neon:'#8cff6a'},borderRadius:{pill:'9999px'},boxShadow:{soft:'0 10px 30px rgba(0,0,0,.08)'}}}};</script>
+  <style>body{font-family:Poppins,system-ui,sans-serif}</style>
+</head>
+<body class="bg-sage text-olive">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/logo.png" alt="BRAQZ logo" class="w-10 h-10 rounded-2xl object-contain bg-white p-1 border"/>
+        <div class="text-lg font-extrabold tracking-wide">BRAQZ</div>
+      </a>
+      <nav class="hidden sm:flex items-center gap-6 text-sm">
+        <a href="shop.html" class="navlink">Shop</a>
+        <a href="about.html" class="navlink">About</a>
+        <a href="faq.html" class="navlink">FAQ</a>
+        <a href="contact.html" class="navlink">Contact</a>
+      </nav>
+      <a id="navWa" href="#" target="_blank" class="ml-3 inline-flex items-center gap-2 rounded-pill bg-neon text-olive text-sm px-4 py-2 font-semibold shadow-soft">WhatsApp</a>
+    </div>
+  </header>
 
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    <div class="flex items-end justify-between mb-6">
+      <div>
+        <h1 class="text-2xl font-extrabold">Shop</h1>
+        <p class="text-sm text-olive/70">Filter by category and explore.</p>
+      </div>
+      <div class="flex gap-2 text-sm">
+        <button class="rounded-pill border px-3 py-2 bg-white">All</button>
+        <button class="rounded-pill border px-3 py-2 bg-white">Crocs</button>
+        <button class="rounded-pill border px-3 py-2 bg-white">Clogs</button>
+        <button class="rounded-pill border px-3 py-2 bg-white">Slides</button>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Design-only placeholders for now -->
+      <article class="bg-white border rounded-2xl overflow-hidden shadow-soft">
+        <div class="h-56 bg-olive/20"></div>
+        <div class="p-4 space-y-2">
+          <h3 class="font-semibold">Product Name</h3>
+          <p class="text-sm text-olive/70">Category</p>
+          <a class="inline-block mt-2 rounded-2xl bg-olive text-white px-3 py-2 text-sm">View</a>
+        </div>
+      </article>
+      <article class="bg-white border rounded-2xl overflow-hidden shadow-soft">
+        <div class="h-56 bg-olive/20"></div>
+        <div class="p-4 space-y-2">
+          <h3 class="font-semibold">Product Name</h3>
+          <p class="text-sm text-olive/70">Category</p>
+          <a class="inline-block mt-2 rounded-2xl bg-olive text-white px-3 py-2 text-sm">View</a>
+        </div>
+      </article>
+      <article class="bg-white border rounded-2xl overflow-hidden shadow-soft">
+        <div class="h-56 bg-olive/20"></div>
+        <div class="p-4 space-y-2">
+          <h3 class="font-semibold">Product Name</h3>
+          <p class="text-sm text-olive/70">Category</p>
+          <a class="inline-block mt-2 rounded-2xl bg-olive text-white px-3 py-2 text-sm">View</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="border-t bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-sm flex items-center justify-between">
+      <div>© <span id="year"></span> BRAQZ. All rights reserved.</div>
+      <a href="#" class="underline">Back to top</a>
+    </div>
+  </footer>
+
+  <a id="floatWa" href="#" target="_blank" class="fixed bottom-5 right-5 rounded-pill bg-neon text-olive px-5 py-3 shadow-soft text-sm font-semibold">Chat on WhatsApp</a>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
