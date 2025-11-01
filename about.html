@@ -1,1 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — BRAQZ</title>
+  <link rel="icon" href="assets/logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{fontFamily:{sans:['Poppins','ui-sans-serif','system-ui']},extend:{colors:{olive:'#3a4a2b',sage:'#c9d1b4',neon:'#8cff6a'},borderRadius:{pill:'9999px'},boxShadow:{soft:'0 10px 30px rgba(0,0,0,.08)'}}}};</script>
+  <style>body{font-family:Poppins,system-ui,sans-serif}</style>
+</head>
+<body class="bg-sage text-olive">
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/logo.png" alt="BRAQZ logo" class="w-10 h-10 rounded-2xl object-contain bg-white p-1 border"/>
+        <div class="text-lg font-extrabold tracking-wide">BRAQZ</div>
+      </a>
+      <nav class="hidden sm:flex items-center gap-6 text-sm">
+        <a href="shop.html" class="navlink">Shop</a>
+        <a href="about.html" class="navlink">About</a>
+        <a href="faq.html" class="navlink">FAQ</a>
+        <a href="contact.html" class="navlink">Contact</a>
+      </nav>
+      <a id="navWa" href="#" target="_blank" class="ml-3 inline-flex items-center gap-2 rounded-pill bg-neon text-olive text-sm px-4 py-2 font-semibold shadow-soft">WhatsApp</a>
+    </div>
+  </header>
 
+  <main class="max-w-5xl mx-auto px-4 py-12">
+    <h1 class="text-3xl font-extrabold mb-4">About BRAQZ</h1>
+    <p class="text-olive/80 leading-relaxed">BRAQZ is a comfort-first shoe brand built for Abuja life. Our crocs & clogs are light, water-friendly, and made to keep you moving—whether you’re on campus, at work, or out with friends. “stay Cool!” isn’t just a tagline; it’s how we design.</p>
+
+    <div class="grid md:grid-cols-3 gap-4 text-sm mt-8">
+      <div class="rounded-2xl border bg-white p-4 shadow-soft"><div class="font-semibold">Quality</div><div class="text-olive/80">Durable builds for daily wear.</div></div>
+      <div class="rounded-2xl border bg-white p-4 shadow-soft"><div class="font-semibold">Comfort</div><div class="text-olive/80">Breathable, easy to clean.</div></div>
+      <div class="rounded-2xl border bg-white p-4 shadow-soft"><div class="font-semibold">Service</div><div class="text-olive/80">Fast WhatsApp support & delivery.</div></div>
+    </div>
+  </main>
+
+  <footer class="border-t bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-sm flex items-center justify-between">
+      <div>© <span id="year"></span> BRAQZ. All rights reserved.</div>
+      <a href="#" class="underline">Back to top</a>
+    </div>
+  </footer>
+
+  <a id="floatWa" href="#" target="_blank" class="fixed bottom-5 right-5 rounded-pill bg-neon text-olive px-5 py-3 shadow-soft text-sm font-semibold">Chat on WhatsApp</a>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
