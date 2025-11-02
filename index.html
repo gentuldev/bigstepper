@@ -12,8 +12,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind (CDN — development only: use a build step for production) -->
+  <script src="https://cdn.tailwindcss.com" defer crossorigin="anonymous"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -28,11 +28,10 @@
   </script>
   <style>
     html{scroll-behavior:smooth}
-    body{font-family:Poppins,system-ui,sans-serif}
     .brand{font-family:'Baloo 2',system-ui,sans-serif; letter-spacing:.5px}
   </style>
 </head>
-<body class="bg-sage text-olive">
+<body class="bg-sage text-olive font-sans">
 
   <!-- ===== Header (Fire icon + BRAQZ!, hamburger menu) ===== -->
   <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
@@ -82,7 +81,7 @@
         <p class="mt-4 text-olive/80">Authentic-looking crocs & clogs. Lightweight, water-friendly and built for everyday use in Abuja.</p>
         <div class="mt-6 flex flex-wrap gap-3">
           <a href="shop.html" class="inline-block rounded-2xl bg-olive text-white px-6 py-3 text-sm font-semibold shadow-soft hover:scale-105 transition">Browse Shop</a>
-          <a id="heroWa" href="#" target="_blank" class="inline-block rounded-2xl border-2 border-olive text-olive px-6 py-3 text-sm font-semibold hover:bg-olive hover:text-white transition">Order on WhatsApp</a>
+          <a id="heroWa" href="#" target="_blank" class="inline-block rounded-2xl border-2 border-olive text-olive px-6 py-3 text-sm font-semibold hover:bg-olive hover:text-white transition">Order[...]</a>
         </div>
         <div class="mt-4 text-xs text-olive/70">Free in-town delivery on orders ₦100,000+</div>
       </div>
@@ -99,15 +98,15 @@
       <div class="grid sm:grid-cols-3 gap-5">
         <a href="shop.html#Clogs" class="group block rounded-2xl overflow-hidden border bg-white shadow-soft">
           <img src="https://images.unsplash.com/photo-1604175531406-0e0a9c9c3d2f?q=80&w=1200&auto=format&fit=crop" class="h-44 w-full object-cover group-hover:opacity-90 transition" alt="Clogs"/>
-          <div class="p-4 flex items-center justify-between"><div><div class="font-semibold">Clogs</div><div class="text-xs text-olive/70">Everyday comfort</div></div><span class="text-olive text-sm">Browse →</span></div>
+          <div class="p-4 flex items-center justify-between"><div><div class="font-semibold">Clogs</div><div class="text-xs text-olive/70">Everyday comfort</div></div><span class="text-olive text[...]</span></div>
         </a>
         <a href="shop.html#Crocs" class="group block rounded-2xl overflow-hidden border bg-white shadow-soft">
           <img src="https://images.unsplash.com/photo-1622844997996-531f1b512b0b?q=80&w=1200&auto=format&fit=crop" class="h-44 w-full object-cover group-hover:opacity-90 transition" alt="Crocs"/>
-          <div class="p-4 flex items-center justify-between"><div><div class="font-semibold">Crocs</div><div class="text-xs text-olive/70">Classic & platform</div></div><span class="text-olive text-sm">Browse →</span></div>
+          <div class="p-4 flex items-center justify-between"><div><div class="font-semibold">Crocs</div><div class="text-xs text-olive/70">Classic & platform</div></div><span class="text-olive te[...]</span></div>
         </a>
         <a href="shop.html#Slides" class="group block rounded-2xl overflow-hidden border bg-white shadow-soft">
           <img src="https://images.unsplash.com/photo-1605731414532-6b8d6eaeb1ae?q=80&w=1200&auto=format&fit=crop" class="h-44 w-full object-cover group-hover:opacity-90 transition" alt="Slides"/>
-          <div class="p-4 flex items-center justify-between"><div><div class="font-semibold">Slides</div><div class="text-xs text-olive/70">Light & breathable</div></div><span class="text-olive text-sm">Browse →</span></div>
+          <div class="p-4 flex items-center justify-between"><div><div class="font-semibold">Slides</div><div class="text-xs text-olive/70">Light & breathable</div></div><span class="text-olive t[...]</span></div>
         </a>
       </div>
     </div>
