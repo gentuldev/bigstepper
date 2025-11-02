@@ -33,32 +33,28 @@
 </head>
 <body class="bg-white text-ink">
   <!-- ===== Header (minimal) ===== -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3">
-        <img src="assets/logo.png" alt="BRAQZ logo" class="h-10 w-10 rounded-xl object-contain bg-white border">
-        <span class="brand text-2xl font-extrabold tracking-tight">BRAQZ!</span>
-      </a>
-      <button id="menuBtn" aria-label="Open menu"
-        class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-ink/80 hover:bg-ink hover:text-white transition">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
-      </button>
-    </div>
-    <nav id="mobileMenu" class="hidden border-t bg-white">
-      <div class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
-        <a class="py-2" href="shop.html">Shop</a>
-        <div class="grid grid-cols-3 gap-2 text-xs text-ink/70">
-          <a href="shop.html#Crocs"  class="rounded-full border px-3 py-2 text-center">Crocs</a>
-          <a href="shop.html#Clogs"  class="rounded-full border px-3 py-2 text-center">Clogs</a>
-          <a href="shop.html#Slides" class="rounded-full border px-3 py-2 text-center">Slides</a>
-        </div>
-        <a class="py-2" href="about.html">About</a>
-        <a class="py-2" href="faq.html">FAQ</a>
-        <a class="py-2" href="contact.html">Contact</a>
+  <header class="sticky top-0 z-50 border-b bg-gradient-to-b from-[#cbd3b9] to-white/0 backdrop-blur">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3">
+      <!-- Rectangular logo “card” -->
+      <div class="rounded-xl bg-white/90 border shadow-sm px-2.5 py-1.5 flex items-center gap-2">
+        <img src="assets/logo.png" alt="BRAQZ logo" class="h-8 w-auto object-contain">
+        <span class="brand text-xl sm:text-2xl font-extrabold tracking-tight">BRAQZ!</span>
       </div>
-    </nav>
-  </header>
+    </a>
 
+    <!-- Burger -->
+    <button id="menuBtn" aria-label="Open menu"
+      class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-ink/80 hover:bg-ink hover:text-white transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- keep your existing mobileMenu nav here -->
+</header>
+  
   <!-- ===== Hero (editorial minimal) ===== -->
   <section class="max-w-6xl mx-auto px-4">
     <div class="grid md:grid-cols-2 gap-8 items-center pt-10 pb-8">
