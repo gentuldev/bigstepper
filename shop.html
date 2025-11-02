@@ -18,35 +18,42 @@
 
   <!-- Header (fire + BRAQZ! + hamburger) -->
   <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3">
-        <img src="assets/fire.png" onerror="this.src='assets/logo.png'" alt="BRAQZ fire" class="w-9 h-9 rounded-xl object-contain" />
-        <div class="brand text-xl font-extrabold tracking-wide">BRAQZ!</div>
-      </a>
-      <button id="menuBtn" aria-label="Open menu" class="inline-flex items-center justify-center w-10 h-10 rounded-xl border text-olive hover:bg-olive hover:text-white transition">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
-      </button>
-    </div>
-    <nav id="mobileMenu" class="hidden border-t bg-white">
-      <div class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
-        <a class="py-2" href="shop.html">Shop</a>
-        <div class="grid grid-cols-3 gap-2 text-xs text-olive/80">
-          <a href="#Crocs"  class="rounded-full border px-3 py-2 text-center">Crocs</a>
-          <a href="#Clogs"  class="rounded-full border px-3 py-2 text-center">Clogs</a>
-          <a href="#Slides" class="rounded-full border px-3 py-2 text-center">Slides</a>
-        </div>
-        <a class="py-2" href="about.html">About BRAQZ!</a>
-        <a class="py-2" href="faq.html">FAQ</a>
-        <a class="py-2" href="contact.html">Contact</a>
-        <hr class="my-2">
-        <a class="py-2" href="#">Size Guide</a>
-        <a class="py-2" href="#">Returns & Delivery</a>
-        <a class="py-2" href="#">Track Order (WhatsApp)</a>
-        <a class="py-2" href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
-      </div>
-    </nav>
-  </header>
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <!-- Full brand logo -->
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="assets/logo.png" alt="BRAQZ! — stay Cool!" class="h-10 sm:h-12 w-auto rounded-xl object-contain" />
+    </a>
 
+    <!-- Hamburger -->
+    <button id="menuBtn" aria-label="Open menu"
+      class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-olive hover:bg-olive hover:text-white transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Slide/fade mobile menu -->
+  <nav id="mobileMenu"
+       class="hidden border-t bg-white transition-all duration-300 transform scale-y-0 origin-top opacity-0">
+    <div class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
+      <a class="py-2" href="shop.html">Shop</a>
+      <div class="grid grid-cols-3 gap-2 text-xs text-olive/80">
+        <a href="shop.html#Crocs"  class="rounded-full border px-3 py-2 text-center">Crocs</a>
+        <a href="shop.html#Clogs"  class="rounded-full border px-3 py-2 text-center">Clogs</a>
+        <a href="shop.html#Slides" class="rounded-full border px-3 py-2 text-center">Slides</a>
+      </div>
+      <a class="py-2" href="about.html">About BRAQZ!</a>
+      <a class="py-2" href="faq.html">FAQ</a>
+      <a class="py-2" href="contact.html">Contact</a>
+      <hr class="my-2">
+      <a class="py-2" href="#">Size Guide</a>
+      <a class="py-2" href="#">Returns & Delivery</a>
+      <a class="py-2" href="#">Track Order (WhatsApp)</a>
+      <a class="py-2" href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </nav>
+</header>
   <main class="max-w-6xl mx-auto px-4 py-8">
     <div class="flex items-end justify-between mb-6">
       <div>
