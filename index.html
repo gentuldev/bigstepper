@@ -126,11 +126,5 @@
 
   <!-- Shared JS (WhatsApp wiring, menu toggle, year, active nav) -->
   <script src="assets/app.js"></script>
-    // Simple guard in case app.js isn't loaded
-    (function(){
-      const menuBtn = document.getElementById('menuBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-      if(menuBtn && mobileMenu){
-        menuBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'));
 </body>
 </html>
