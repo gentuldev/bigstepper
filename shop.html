@@ -11,7 +11,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{fontFamily:{sans:['Poppins','ui-sans-serif','system-ui']},extend:{colors:{olive:'#3a4a2b',sage:'#c9d1b4',neon:'#8cff6a'},borderRadius:{pill:'9999px'},boxShadow:{soft:'0 10px 30px rgba(0,0,0,.08)'}}}}</script>
+  <script>
+  tailwind.config = {
+    safelist: [
+      'scale-y-0','scale-y-100',
+      'opacity-0','opacity-100',
+      'translate-y-24','scale-95'
+    ],
+    theme: {
+      fontFamily: { sans: ['Poppins','ui-sans-serif','system-ui'] },
+      extend: {
+        colors: { olive:'#3a4a2b', sage:'#c9d1b4', neon:'#8cff6a' },
+        borderRadius: { pill:'9999px' },
+        boxShadow: { soft:'0 10px 30px rgba(0,0,0,.08)' }
+      }
+    }
+  }
+</script>
   <style>body{font-family:Poppins,system-ui,sans-serif}.brand{font-family:'Baloo 2',system-ui,sans-serif;letter-spacing:.5px}</style>
 </head>
 <body class="bg-sage text-olive">
@@ -108,7 +124,9 @@
 </a>
 
 <!-- Shared JS (must be included on ALL pages) -->
+<!-- Shared site logic (menu animation + WA fold) -->
 <script src="assets/app.js"></script>
-  <script src="assets/app.js"></script>
+
+<!-- Page-specific logic for the shop grid, modal, filters -->
 </body>
 </html>
