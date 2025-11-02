@@ -3,41 +3,100 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About — BRAQZ</title>
+  <title>About — BRAQZ!</title>
   <link rel="icon" href="assets/logo.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{fontFamily:{sans:['Poppins','ui-sans-serif','system-ui']},extend:{colors:{olive:'#3a4a2b',sage:'#c9d1b4',neon:'#8cff6a'},borderRadius:{pill:'9999px'},boxShadow:{soft:'0 10px 30px rgba(0,0,0,.08)'}}}};</script>
-  <style>body{font-family:Poppins,system-ui,sans-serif}</style>
+  <script>
+    tailwind.config = {
+      theme: {
+        fontFamily: { sans: ['Poppins','ui-sans-serif','system-ui'] },
+        extend: {
+          colors: { olive:'#3a4a2b', sage:'#c9d1b4', neon:'#8cff6a' },
+          borderRadius: { pill:'9999px' },
+          boxShadow: { soft:'0 10px 30px rgba(0,0,0,.08)' }
+        }
+      }
+    }
+  </script>
+  <style>
+    body{font-family:Poppins,system-ui,sans-serif}
+    .brand{font-family:'Baloo 2',system-ui,sans-serif;letter-spacing:.5px}
+  </style>
 </head>
 <body class="bg-sage text-olive">
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
+
+  <!-- ===== Header (matches shop) ===== -->
+  <header class="relative sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3">
-        <img src="assets/logo.png" alt="BRAQZ logo" class="w-10 h-10 rounded-2xl object-contain bg-white p-1 border"/>
-        <div class="text-lg font-extrabold tracking-wide">BRAQZ</div>
+        <img src="assets/logo.png" alt="BRAQZ! — stay Cool!" class="h-10 sm:h-12 w-auto rounded-xl object-contain" />
+        <span class="brand text-2xl font-extrabold text-olive">BRAQZ!</span>
       </a>
-      <nav class="hidden sm:flex items-center gap-6 text-sm">
-        <a href="shop.html" class="navlink">Shop</a>
-        <a href="about.html" class="navlink">About</a>
-        <a href="faq.html" class="navlink">FAQ</a>
-        <a href="contact.html" class="navlink">Contact</a>
-      </nav>
-      <a id="navWa" href="#" target="_blank" class="ml-3 inline-flex items-center gap-2 rounded-pill bg-neon text-olive text-sm px-4 py-2 font-semibold shadow-soft">WhatsApp</a>
+
+      <!-- Hamburger -->
+      <button id="menuBtn" aria-label="Open menu"
+        class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-olive hover:bg-olive hover:text-white transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+        </svg>
+      </button>
     </div>
+
+    <!-- Mobile menu (simple show/hide) -->
+    <nav id="mobileMenu"
+         class="hidden absolute top-full inset-x-0 z-[60] border-t bg-white text-olive shadow-md">
+      <div class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
+        <a class="py-2" href="shop.html">Shop</a>
+        <div class="grid grid-cols-3 gap-2 text-xs text-olive/80">
+          <a href="shop.html#Crocs"  class="rounded-full border px-3 py-2 text-center">Crocs</a>
+          <a href="shop.html#Clogs"  class="rounded-full border px-3 py-2 text-center">Clogs</a>
+          <a href="shop.html#Slides" class="rounded-full border px-3 py-2 text-center">Slides</a>
+        </div>
+        <a class="py-2" href="about.html">About BRAQZ!</a>
+        <a class="py-2" href="faq.html">FAQ</a>
+        <a class="py-2" href="contact.html">Contact</a>
+        <hr class="my-2">
+        <a class="py-2" href="#">Size Guide</a>
+        <a class="py-2" href="#">Returns & Delivery</a>
+        <a class="py-2" href="#">Track Order (WhatsApp)</a>
+        <a class="py-2" href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </nav>
   </header>
 
-  <main class="max-w-5xl mx-auto px-4 py-12">
-    <h1 class="text-3xl font-extrabold mb-4">About BRAQZ</h1>
-    <p class="text-olive/80 leading-relaxed">BRAQZ is a comfort-first shoe brand built for Abuja life. Our crocs & clogs are light, water-friendly, and made to keep you moving—whether you’re on campus, at work, or out with friends. “stay Cool!” isn’t just a tagline; it’s how we design.</p>
+  <!-- ===== Main ===== -->
+  <main class="max-w-6xl mx-auto px-4 py-10">
+    <h1 class="brand text-3xl font-extrabold mb-4">About BRAQZ!</h1>
+    <p class="text-olive/80 leading-relaxed max-w-2xl">
+      BRAQZ! is a comfort-first shoe brand for everyday life across Nigeria. Our crocs & clogs are lightweight,
+      water-friendly, and made to keep you moving—on campus, at work, or out with friends.
+      <em>“stay Cool!”</em> isn’t just a tagline; it’s how we design.
+    </p>
 
     <div class="grid md:grid-cols-3 gap-4 text-sm mt-8">
-      <div class="rounded-2xl border bg-white p-4 shadow-soft"><div class="font-semibold">Quality</div><div class="text-olive/80">Durable builds for daily wear.</div></div>
-      <div class="rounded-2xl border bg-white p-4 shadow-soft"><div class="font-semibold">Comfort</div><div class="text-olive/80">Breathable, easy to clean.</div></div>
-      <div class="rounded-2xl border bg-white p-4 shadow-soft"><div class="font-semibold">Service</div><div class="text-olive/80">Fast WhatsApp support & delivery.</div></div>
+      <div class="rounded-2xl border bg-white p-4 shadow-soft">
+        <div class="font-semibold">Quality</div>
+        <div class="text-olive/80">Durable builds for daily wear.</div>
+      </div>
+      <div class="rounded-2xl border bg-white p-4 shadow-soft">
+        <div class="font-semibold">Comfort</div>
+        <div class="text-olive/80">Breathable, easy to clean.</div>
+      </div>
+      <div class="rounded-2xl border bg-white p-4 shadow-soft">
+        <div class="font-semibold">Service</div>
+        <div class="text-olive/80">Fast WhatsApp support & delivery.</div>
+      </div>
     </div>
   </main>
 
+  <!-- ===== Footer ===== -->
   <footer class="border-t bg-white">
     <div class="max-w-6xl mx-auto px-4 py-8 text-sm flex items-center justify-between">
       <div>© <span id="year"></span> BRAQZ. All rights reserved.</div>
@@ -45,8 +104,41 @@
     </div>
   </footer>
 
-  <a id="floatWa" href="#" target="_blank" class="fixed bottom-5 right-5 rounded-pill bg-neon text-olive px-5 py-3 shadow-soft text-sm font-semibold">Chat on WhatsApp</a>
+  <!-- Floating WhatsApp -->
+  <a id="floatWa" href="#" target="_blank"
+     class="fixed bottom-5 right-5 rounded-pill bg-neon text-olive px-5 py-3 shadow-soft text-sm font-semibold transition duration-300">
+     Chat on WhatsApp
+  </a>
 
+  <!-- Shared JS -->
   <script src="assets/app.js"></script>
+
+  <!-- Fallback: runs ONLY if app.js didn’t load -->
+  <script>
+    (function(){
+      if (window.BRAQZ_APP_LOADED) return;
+
+      // WhatsApp fallback
+      var floater = document.getElementById('floatWa');
+      if (floater) {
+        var num = '2349136627644';
+        floater.href = 'https://wa.me/' + num + '?text=' + encodeURIComponent('Hello BRAQZ!');
+        var lastY = window.scrollY;
+        window.addEventListener('scroll', function(){
+          var y = window.scrollY;
+          if (y > lastY + 5) { floater.style.transform='translateY(96px) scale(.95)'; floater.style.opacity='0'; }
+          else if (y < lastY - 5) { floater.style.transform=''; floater.style.opacity=''; }
+          lastY = y;
+        }, {passive:true});
+      }
+
+      // Simple menu toggle (no animations)
+      var btn  = document.getElementById('menuBtn');
+      var menu = document.getElementById('mobileMenu');
+      if (btn && menu) btn.addEventListener('click', function(){ menu.classList.toggle('hidden'); });
+
+      console.warn('BRAQZ fallback active on this page (app.js not detected).');
+    })();
+  </script>
 </body>
 </html>
