@@ -31,7 +31,7 @@
   <style>body{font-family:Poppins,system-ui,sans-serif}.brand{font-family:'Baloo 2',system-ui,sans-serif;letter-spacing:.5px}</style>
 </head>
 <body class="bg-sage text-olive">
-<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
+<header class="relative sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
   <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
     <a href="index.html" class="flex items-center gap-3">
       <img src="assets/logo.png" alt="BRAQZ! — stay Cool!" class="h-10 sm:h-12 w-auto rounded-xl object-contain" />
@@ -48,7 +48,8 @@
 
   <!-- Slide/fade mobile menu -->
   <nav id="mobileMenu"
-       class="hidden border-t bg-white transition-all duration-300 transform scale-y-0 origin-top opacity-0">
+     class="hidden absolute top-full inset-x-0 z-[60] border-t bg-white shadow-md
+            transition-all duration-300 transform scale-y-0 origin-top opacity-0 text-olive">
     <div class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
       <a class="py-2" href="shop.html">Shop</a>
       <div class="grid grid-cols-3 gap-2 text-xs text-olive/80">
