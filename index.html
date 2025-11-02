@@ -27,10 +27,25 @@
     }
   </script>
   <style>
-    html{scroll-behavior:smooth}
-    body{font-family:Poppins,system-ui,sans-serif}
-    .brand{font-family:'Baloo 2',system-ui,sans-serif; letter-spacing:.5px}
-  </style>
+  /* Fade-up for hero text */
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  .hero-text { animation: fadeUp .6s ease-out forwards }
+
+  /* Lift on hover for CTAs and cards */
+  .btn { transition: all .25s ease }
+  .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,.12) }
+
+  .category-card { transition: all .3s ease }
+  .category-card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 10px 20px rgba(0,0,0,.08) }
+
+  /* WhatsApp pulse ring */
+  #floatWa { position: fixed }            /* ensure positioning */
+  #floatWa::after{
+    content:""; position:absolute; inset:-4px; border-radius:50px;
+    border:2px solid #25D366; animation:pulse 2s infinite; pointer-events:none;
+  }
+  @keyframes pulse { 0%{transform:scale(1);opacity:.5} 100%{transform:scale(1.4);opacity:0} }
+</style>
 </head>
 <body class="bg-sage text-olive">
 
