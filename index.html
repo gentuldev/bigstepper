@@ -32,29 +32,48 @@
   </style>
 </head>
 <body class="bg-white text-ink">
-  <!-- ===== Header (minimal) ===== -->
-  <header class="sticky top-0 z-50 border-b bg-gradient-to-b from-[#cbd3b9] to-white/0 backdrop-
+  <!-- ===== Header ===== -->
+<header class="sticky top-0 z-50 border-b bg-gradient-to-r from-[#cbd3b9] via-white/70 to-white backdrop-blur">
+  <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
+
+    <!-- Brand: feet logo + BRAQZ! (Baloo 2) -->
+    <a href="index.html" class="flex items-center gap-3 min-w-0">
+      <div class="flex flex-col items-center">
+        <img src="assets/logo-feet.png" alt="BRAQZ logo"
+             class="h-8 sm:h-10 w-auto object-contain mb-0.5 drop-shadow-sm">
+        <span class="leading-none text-[0.9rem] sm:text-[1rem] font-bold text-olive"
+              style="font-family:'Baloo 2', cursive; letter-spacing:.3px;">
+          BRAQZ!
+        </span>
+      </div>
     </a>
-<div class="flex flex-col items-center">
-  <img src="assets/logo-feet.png" alt="BRAQZ logo" 
-       class="h-10 sm:h-12 w-auto object-contain mb-1 drop-shadow-sm">
-  <span class="text-[1rem] sm:text-[1.1rem] font-bold text-olive" 
-        style="font-family:'Baloo 2', cursive; letter-spacing:0.5px;">
-    BRAQZ!
-  </span>
-</div>
-    <!-- Burger -->
+
+    <!-- Hamburger -->
     <button id="menuBtn" aria-label="Open menu"
-      class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-ink/80 hover:bg-ink hover:text-white transition">
+            class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-ink/80 hover:bg-ink hover:text-white transition">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
         <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
       </svg>
     </button>
   </div>
 
-  <!-- keep your existing mobileMenu nav here -->
+  <!-- Slide-down mobile menu -->
+  <nav id="mobileMenu"
+       class="hidden absolute top-full inset-x-0 z-[60] bg-white border-b shadow-md">
+    <div class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
+      <a class="py-2" href="shop.html">Shop</a>
+      <div class="grid grid-cols-3 gap-2 text-xs text-ink/70">
+        <a href="shop.html#Crocs"  class="rounded-full border px-3 py-2 text-center">Crocs</a>
+        <a href="shop.html#Clogs"  class="rounded-full border px-3 py-2 text-center">Clogs</a>
+        <a href="shop.html#Slides" class="rounded-full border px-3 py-2 text-center">Slides</a>
+      </div>
+      <a class="py-2" href="about.html">About</a>
+      <a class="py-2" href="faq.html">FAQ</a>
+      <a class="py-2" href="contact.html">Contact</a>
+    </div>
+  </nav>
 </header>
-  
+
   <!-- ===== Hero (editorial minimal) ===== -->
   <section class="max-w-6xl mx-auto px-4">
     <div class="grid md:grid-cols-2 gap-8 items-center pt-10 pb-8">
