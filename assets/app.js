@@ -26,10 +26,17 @@ const menuBtn = document.getElementById('menuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 if (menuBtn && mobileMenu) {
   menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
+  if (mobileMenu.classList.contains('scale-y-0')) {
+    mobileMenu.classList.remove('hidden');
+    setTimeout(() => {
+      mobileMenu.classList.remove('scale-y-0','opacity-0');
+      mobileMenu.classList.add('scale-y-100','opacity-100');
+    }, 10);
+  } else {
+    mobileMenu.classList.add('scale-y-0','opacity-0');
+    setTimeout(() => mobileMenu.classList.add('hidden'), 250);
   });
-}
-
+} 
 // ======= Floating WhatsApp: fold on scroll (hide when scrolling down, show when up)
 (function(){
   const floater = document.getElementById('floatWa');
