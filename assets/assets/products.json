@@ -1,0 +1,84 @@
+[
+  {
+    "id": "c1",
+    "name": "Classic Clog — Olive",
+    "price": 28500,
+    "category": "Clogs",
+    "image": "https://images.unsplash.com/photo-1604175531406-0e0a9c9c3d2f?q=80&w=1200&auto=format&fit=crop",
+    "colors": ["Olive", "Black", "Beige"],
+    "sizes": ["40","41","42","43","44"],
+    "badge": "Best Seller"
+  },
+  {
+    "id": "c2",
+    "name": "Echo Clog — Graphite",
+    "price": 45500,
+    "category": "Crocs",
+    "image": "https://images.unsplash.com/photo-1622844997996-531f1b512b0b?q=80&w=1200&auto=format&fit=crop",
+    "colors": ["Graphite","Black"],
+    "sizes": ["42","43","44","45"]
+  },
+  {
+    "id": "c3",
+    "name": "Classic Platform — White",
+    "price": 39500,
+    "category": "Crocs",
+    "image": "https://images.unsplash.com/photo-1621343318181-270d5a1d0e31?q=80&w=1200&auto=format&fit=crop",
+    "colors": ["White","Pink","Lavender"],
+    "sizes": ["38","39","40","41"]
+  },
+  {
+    "id": "s1",
+    "name": "LiteRide Slide — Black",
+    "price": 22500,
+    "category": "Slides",
+    "image": "https://images.unsplash.com/photo-1605731414532-6b8d6eaeb1ae?q=80&w=1200&auto=format&fit=crop",
+    "colors": ["Black","Navy"],
+    "sizes": ["40","41","42","43"]
+  },
+  {
+    "id": "g1",
+    "name": "Garden Clog — Brown",
+    "price": 18500,
+    "category": "Clogs",
+    "image": "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?q=80&w=1200&auto=format&fit=crop",
+    "colors": ["Brown","Grey","Black"],
+    "sizes": ["41","42","43"]
+  },
+  {
+    "id": "m1",
+    "name": "Marbled Clog — Blue/Red",
+    "price": 36500,
+    "category": "Crocs",
+    "image": "https://images.unsplash.com/photo-1670272502228-17084125ed87?q=80&w=1200&auto=format&fit=crop",
+    "colors": ["Blue","Red"],
+    "sizes": ["42","43","44"]
+  },
+  {
+    "id": "s2",
+    "name": "Comfort Slide — Olive",
+    "price": 19900,
+    "category": "Slides",
+    "image": "https://images.unsplash.com/photo-1603575449299-0c7a4a06c9e5?q=80&w=1200&auto=format&fit=crop",
+    "colors": ["Olive","Black"],
+    "sizes": ["40","41","42","43","44"]
+  },
+  {
+    "id": "c4",
+    "name": "Classic Clog — Black",
+    "price": 28500,
+    "category": "Clogs",
+    "image": "https://images.unsplash.com/photo-1604175531406-0e0a9c9c3d2f?q=80&w=1200&auto=format&fit=crop",
+    "colors": ["Black","Navy","White"],
+    "sizes": ["41","42","43","44"]
+  },
+  {
+    "id": "s3",
+    "name": "Sport Slide — Navy",
+    "price": 21000,
+    "category": "Slides",
+    "image": "https://images.unsplash.com/photo-1620807776028-058b7f5f5f90?q=80&w=1200&auto=format&fit=crop",
+    "colors": ["Navy","Grey"],
+    "sizes": ["41","42","43","44","45"]
+  }
+]
