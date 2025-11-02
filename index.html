@@ -1,16 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BRAQZ! — stay Cool!</title>
-  <meta name="description" content="BRAQZ — crocs & clogs in Abuja. Lightweight, water-friendly, built for everyday use. Order via WhatsApp." />
-  <link rel="icon" href="assets/logo.png" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>BRAQZ! — Stay Cool</title>
+  <link rel="icon" href="assets/logo.png"/>
 
-  <!-- Fonts: Poppins (UI) + Baloo 2 (brand) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -26,41 +25,27 @@
       }
     }
   </script>
+
+  <!-- Small effects for FAQ/link underline (reusable) -->
   <style>
-    html{scroll-behavior:smooth}
     body{font-family:Poppins,system-ui,sans-serif}
-    .brand{font-family:'Baloo 2',system-ui,sans-serif; letter-spacing:.5px}
-  /* Fade-up for hero text */
-  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-  .hero-text { animation: fadeUp .6s ease-out forwards }
-
-  /* Lift on hover for CTAs and cards */
-  .btn { transition: all .25s ease }
-  .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,.12) }
-
-  .category-card { transition: all .3s ease }
-  .category-card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 10px 20px rgba(0,0,0,.08) }
-
-  /* WhatsApp pulse ring */
-  #floatWa { position: fixed }            /* ensure positioning */
-  #floatWa::after{
-    content:""; position:absolute; inset:-4px; border-radius:50px;
-    border:2px solid #25D366; animation:pulse 2s infinite; pointer-events:none;
-  }
-  @keyframes pulse { 0%{transform:scale(1);opacity:.5} 100%{transform:scale(1.4);opacity:0} }
-</style>
+    .brand{font-family:'Baloo 2',system-ui,sans-serif;letter-spacing:.5px}
+    .link-underline{background:linear-gradient(0deg,rgba(0,0,0,0),rgba(0,0,0,0)) no-repeat left bottom/0 2px}
+    .link-underline:hover{background-size:100% 2px}
+    .link-underline{transition:background-size .25s ease,color .25s}
+  </style>
 </head>
 <body class="bg-sage text-olive">
 
-  <!-- ===== Header (Fire icon + BIG BRAQZ!, animated menu) ===== -->
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
+  <!-- ===== Header (simple & bulletproof) ===== -->
+  <header class="relative sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3">
-        <img src="assets/fire.png" onerror="this.src='assets/logo.png'" alt="BRAQZ fire" class="w-10 h-10 rounded-xl object-contain" />
-        <div class="brand text-2xl sm:text-3xl font-extrabold tracking-wide">BRAQZ!</div>
+        <img src="assets/logo.png" alt="BRAQZ! — stay Cool!" class="h-10 sm:h-12 w-auto rounded-xl object-contain"/>
+        <span class="brand text-2xl font-extrabold text-olive">BRAQZ!</span>
       </a>
 
-      <!-- Hamburger -->
+      <!-- Hamburger (menu only; no WhatsApp up here) -->
       <button id="menuBtn" aria-label="Open menu"
         class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-olive hover:bg-olive hover:text-white transition">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
@@ -69,9 +54,9 @@
       </button>
     </div>
 
-    <!-- Slide/fade mobile menu -->
+    <!-- Mobile menu (simple show/hide) -->
     <nav id="mobileMenu"
-         class="hidden border-t bg-white transition-all duration-300 transform scale-y-0 origin-top opacity-0">
+         class="hidden absolute top-full inset-x-0 z-[60] border-t bg-white text-olive shadow-md">
       <div class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
         <a class="py-2" href="shop.html">Shop</a>
         <div class="grid grid-cols-3 gap-2 text-xs text-olive/80">
@@ -86,57 +71,178 @@
         <a class="py-2" href="#">Size Guide</a>
         <a class="py-2" href="#">Returns & Delivery</a>
         <a class="py-2" href="#">Track Order (WhatsApp)</a>
-        <a class="py-2" href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+        <a class="py-2" href="https://instagram.com/yourhandle" target="_blank" rel="noopener">Instagram</a>
       </div>
     </nav>
   </header>
 
-  <!-- ===== Hero ===== -->
-  <section class="relative">
-    <div class="max-w-6xl mx-auto px-4 pt-12 pb-12 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <h1 class="brand text-4xl sm:text-5xl font-extrabold leading-tight hero-text">
-  Comfort that goes everywhere.
-</h1>
+  <!-- ===== HERO / EDITORIAL ===== -->
+  <section class="relative overflow-hidden bg-olive text-white rounded-[24px] sm:rounded-[32px] mt-6 max-w-6xl mx-auto px-4">
+    <!-- Background image -->
+    <img src="https://images.unsplash.com/photo-1621343318181-270d5a1d0e31?q=80&w=1600&auto=format&fit=crop"
+         alt="BRAQZ Editorial" class="absolute inset-0 w-full h-full object-cover opacity-70">
+    <!-- Gradient veil -->
+    <div class="absolute inset-0 bg-gradient-to-tr from-black/60 via-black/30 to-transparent"></div>
 
-<p class="mt-4 text-olive/80 hero-text">
-  Everyday comfort, anywhere in Nigeria — lightweight, water-friendly crocs & clogs.
-</p>
-        <div class="mt-6 flex flex-wrap gap-3">
-<a href="shop.html" class="btn inline-block rounded-2xl bg-olive text-white px-6 py-3 text-sm font-semibold shadow-soft hover:scale-105 transition">Browse Shop</a>
+    <div class="relative py-14 sm:py-20">
+      <div class="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-3 py-1 text-xs sm:text-sm">
+        <span class="h-2 w-2 rounded-full bg-neon"></span> New season colours in stock
+      </div>
 
-<a id="heroWa" href="#" target="_blank" class="btn inline-block rounded-2xl border-2 border-olive text-olive px-6 py-3 text-sm font-semibold hover:bg-olive hover:text-white transition">Order on WhatsApp</a>
+      <h1 class="mt-4 brand text-4xl sm:text-6xl font-extrabold leading-tight">
+        Comfort that goes <span class="text-neon">everywhere</span>.
+      </h1>
+      <p class="mt-3 max-w-xl text-white/85">
+        Everyday comfort across Nigeria — lightweight, water-friendly crocs & clogs built to <em>Stay Cool!</em>
+      </p>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="shop.html"
+           class="group inline-flex items-center gap-2 rounded-pill bg-neon text-olive px-5 py-3 font-semibold shadow-soft">
+          Browse Shop
+          <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M13 5l7 7-7 7-1.4-1.4L16.2 13H4v-2h12.2l-4.6-4.6L13 5z"/></svg>
+        </a>
+        <a id="heroWa" href="#" target="_blank"
+           class="inline-flex items-center gap-2 rounded-pill border border-white/40 bg-white/10 backdrop-blur px-5 py-3">
+          Order on WhatsApp
+        </a>
+      </div>
+
+      <div class="mt-6 text-xs text-white/70">Free in-town delivery on orders ₦100,000+</div>
+    </div>
+  </section>
+
+  <!-- ===== SHOP BY CATEGORY (Premium tiles) ===== -->
+  <section class="max-w-6xl mx-auto px-4 mt-10">
+    <div class="flex items-end justify-between mb-4">
+      <h2 class="brand text-2xl font-extrabold">Shop by Category</h2>
+      <a href="shop.html" class="text-sm link-underline">View all →</a>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Clogs -->
+      <a href="shop.html#Clogs" class="group relative rounded-2xl overflow-hidden border bg-white">
+        <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?q=80&w=1400&auto=format&fit=crop"
+             class="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" alt="Clogs">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-4 left-4">
+          <div class="text-white text-xl font-semibold">Clogs</div>
+          <div class="text-white/80 text-sm">Everyday comfort</div>
         </div>
-        <div class="mt-4 text-xs text-olive/70">Free in-town delivery on orders ₦100,000+</div>
-      </div>
+        <span class="absolute top-4 right-4 text-[11px] bg-white/90 text-olive rounded-full px-2 py-1">View →</span>
+      </a>
 
-      <!-- Clean logo (no white frame) -->
-      <img src="assets/logo.png" alt="BRAQZ logo" class="rounded-2xl shadow-soft w-full max-w-sm mx-auto" />
+      <!-- Crocs -->
+      <a href="shop.html#Crocs" class="group relative rounded-2xl overflow-hidden border bg-white">
+        <img src="https://images.unsplash.com/photo-1622844997996-531f1b512b0b?q=80&w=1400&auto=format&fit=crop"
+             class="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" alt="Crocs">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-4 left-4">
+          <div class="text-white text-xl font-semibold">Crocs</div>
+          <div class="text-white/80 text-sm">Classic & platform</div>
+        </div>
+        <span class="absolute top-4 right-4 text-[11px] bg-white/90 text-olive rounded-full px-2 py-1">View →</span>
+      </a>
+
+      <!-- Slides -->
+      <a href="shop.html#Slides" class="group relative rounded-2xl overflow-hidden border bg-white">
+        <img src="https://images.unsplash.com/photo-1605731414532-6b8d6eaeb1ae?q=80&w=1400&auto=format&fit=crop"
+             class="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" alt="Slides">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-4 left-4">
+          <div class="text-white text-xl font-semibold">Slides</div>
+          <div class="text-white/80 text-sm">Light & breathable</div>
+        </div>
+        <span class="absolute top-4 right-4 text-[11px] bg-white/90 text-olive rounded-full px-2 py-1">View →</span>
+      </a>
     </div>
   </section>
 
-  <!-- ===== Featured categories ===== -->
-  <section class="py-8">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-xl font-semibold mb-4">Shop by Category</h2>
-      <div class="grid sm:grid-cols-3 gap-5">
-        <a href="shop.html#Clogs" class="group block rounded-2xl overflow-hidden border bg-white shadow-soft">
-          <img src="https://images.unsplash.com/photo-1604175531406-0e0a9c9c3d2f?q=80&w=1200&auto=format&fit=crop" class="h-44 w-full object-cover group-hover:opacity-90 transition" alt="Clogs"/>
-          <div class="p-4 flex items-center justify-between"><div><div class="font-semibold">Clogs</div><div class="text-xs text-olive/70">Everyday comfort</div></div><span class="text-olive text-sm">View →</span></div>
-        </a>
-        <a href="shop.html#Crocs" class="group block rounded-2xl overflow-hidden border bg-white shadow-soft">
-          <img src="https://images.unsplash.com/photo-1622844997996-531f1b512b0b?q=80&w=1200&auto=format&fit=crop" class="h-44 w-full object-cover group-hover:opacity-90 transition" alt="Crocs"/>
-          <div class="p-4 flex items-center justify-between"><div><div class="font-semibold">Crocs</div><div class="text-xs text-olive/70">Classic & platform</div></div><span class="text-olive text-sm">View →</span></div>
-        </a>
-        <a href="shop.html#Slides" class="group block rounded-2xl overflow-hidden border bg-white shadow-soft">
-          <img src="https://images.unsplash.com/photo-1605731414532-6b8d6eaeb1ae?q=80&w=1200&auto=format&fit=crop" class="h-44 w-full object-cover group-hover:opacity-90 transition" alt="Slides"/>
-          <div class="p-4 flex items-center justify-between"><div><div class="font-semibold">Slides</div><div class="text-xs text-olive/70">Light & breathable</div></div><span class="text-olive text-sm">View →</span></div>
-        </a>
+  <!-- ===== TRENDING DROPS ===== -->
+  <section class="max-w-6xl mx-auto px-4 mt-10">
+    <div class="flex items-end justify-between mb-4">
+      <h2 class="brand text-2xl font-extrabold">Trending Drops</h2>
+      <a href="shop.html" class="text-sm link-underline">Shop now →</a>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- card -->
+      <article class="group bg-white border rounded-2xl overflow-hidden shadow-soft transition hover:-translate-y-0.5">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1670272502228-17084125ed87?q=80&w=1400&auto=format&fit=crop"
+               alt="Marbled Clog" class="h-60 w-full object-cover">
+          <span class="absolute top-3 left-3 rounded-full bg-olive text-white text-[11px] px-2 py-1">New</span>
+        </div>
+        <div class="p-4">
+          <div class="font-semibold">Marbled Clog (Unisex)</div>
+          <div class="text-sm text-olive/70">Crocs</div>
+          <a href="shop.html" class="mt-3 inline-flex items-center gap-2 text-sm link-underline">View details →</a>
+        </div>
+      </article>
+
+      <article class="group bg-white border rounded-2xl overflow-hidden shadow-soft transition hover:-translate-y-0.5">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1621343318181-270d5a1d0e31?q=80&w=1400&auto=format&fit=crop"
+               alt="Platform" class="h-60 w-full object-cover">
+          <span class="absolute top-3 left-3 rounded-full bg-olive text-white text-[11px] px-2 py-1">Hot</span>
+        </div>
+        <div class="p-4">
+          <div class="font-semibold">Classic Platform (Women)</div>
+          <div class="text-sm text-olive/70">Crocs</div>
+          <a href="shop.html" class="mt-3 inline-flex items-center gap-2 text-sm link-underline">View details →</a>
+        </div>
+      </article>
+
+      <article class="group bg-white border rounded-2xl overflow-hidden shadow-soft transition hover:-translate-y-0.5">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1605731414532-6b8d6eaeb1ae?q=80&w=1400&auto=format&fit=crop"
+               alt="Slides" class="h-60 w-full object-cover">
+          <span class="absolute top-3 left-3 rounded-full bg-olive text-white text-[11px] px-2 py-1">Restocked</span>
+        </div>
+        <div class="p-4">
+          <div class="font-semibold">LiteRide Slide (Unisex)</div>
+          <div class="text-sm text-olive/70">Slides</div>
+          <a href="shop.html" class="mt-3 inline-flex items-center gap-2 text-sm link-underline">View details →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== LOOKBOOK STRIP ===== -->
+  <section class="max-w-6xl mx-auto px-4 mt-12">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="brand text-xl font-extrabold">Lookbook</h3>
+      <a href="https://instagram.com/yourhandle" target="_blank" class="text-sm link-underline">Follow on Instagram →</a>
+    </div>
+    <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+      <img class="rounded-xl border object-cover h-28 w-full" src="https://images.unsplash.com/photo-1621343318181-270d5a1d0e31?q=80&w=600&auto=format&fit=crop" alt="">
+      <img class="rounded-xl border object-cover h-28 w-full" src="https://images.unsplash.com/photo-1605731414532-6b8d6eaeb1ae?q=80&w=600&auto=format&fit=crop" alt="">
+      <img class="rounded-xl border object-cover h-28 w-full" src="https://images.unsplash.com/photo-1670272502228-17084125ed87?q=80&w=600&auto=format&fit=crop" alt="">
+      <img class="rounded-xl border object-cover h-28 w-full" src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?q=80&w=600&auto=format&fit=crop" alt="">
+      <img class="rounded-xl border object-cover h-28 w-full" src="https://images.unsplash.com/photo-1622844997996-531f1b512b0b?q=80&w=600&auto=format&fit=crop" alt="">
+      <img class="rounded-xl border object-cover h-28 w-full" src="https://images.unsplash.com/photo-1604175531406-0e0a9c9c3d2f?q=80&w=600&auto=format&fit=crop" alt="">
+    </div>
+  </section>
+
+  <!-- ===== TRUST BADGES ===== -->
+  <section class="max-w-6xl mx-auto px-4 mt-10 mb-12">
+    <div class="grid sm:grid-cols-3 gap-3 text-sm">
+      <div class="rounded-2xl border bg-white p-4 shadow-soft flex items-center gap-3">
+        <div class="h-9 w-9 rounded-xl bg-olive text-white grid place-items-center">✓</div>
+        <div><div class="font-semibold">Nationwide Delivery</div><div class="text-olive/70">Fast dispatch</div></div>
+      </div>
+      <div class="rounded-2xl border bg-white p-4 shadow-soft flex items-center gap-3">
+        <div class="h-9 w-9 rounded-xl bg-olive text-white grid place-items-center">↺</div>
+        <div><div class="font-semibold">Easy Returns</div><div class="text-olive/70">Clear policy</div></div>
+      </div>
+      <div class="rounded-2xl border bg-white p-4 shadow-soft flex items-center gap-3">
+        <div class="h-9 w-9 rounded-xl bg-olive text-white grid place-items-center">🕑</div>
+        <div><div class="font-semibold">Support on WhatsApp</div><div class="text-olive/70">9am–6pm</div></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Footer ===== -->
+  <!-- ===== Footer (same pattern as other pages) ===== -->
   <footer class="border-t bg-white">
     <div class="max-w-6xl mx-auto px-4 py-8 text-sm flex items-center justify-between">
       <div>© <span id="year"></span> BRAQZ. All rights reserved.</div>
@@ -146,61 +252,44 @@
 
   <!-- Floating WhatsApp (folds on scroll) -->
   <a id="floatWa" href="#" target="_blank"
-   class="relative fixed bottom-5 right-5 rounded-pill bg-neon text-olive px-5 py-3 shadow-soft text-sm font-semibold transition duration-300">
-   Order now
+     class="fixed bottom-5 right-5 rounded-pill bg-neon text-olive px-5 py-3 shadow-soft text-sm font-semibold transition duration-300">
+     Chat on WhatsApp
   </a>
 
-  <!-- ===== One self-contained script (menu animation + WhatsApp + year + fold button) ===== -->
+  <!-- ===== Scripts ===== -->
+  <script src="assets/app.js"></script>
+
+  <!-- Fallback: runs ONLY if app.js didn’t load -->
   <script>
-    // Brand + WhatsApp wiring
-    const BRAND = { name: 'BRAQZ!', whatsapp: '+2349136627644' };
-    const waNum  = BRAND.whatsapp.replace(/[^0-9]/g, '');
-    const waLink = (text) => `https://wa.me/${waNum}?text=${encodeURIComponent(text || 'Hello BRAQZ!')}`;
-
-    ['heroWa','floatWa','contactWa'].forEach(id=>{
-      const el = document.getElementById(id);
-      if (el) el.href = waLink();
-    });
-
-    const y = document.getElementById('year');
-    if (y) y.textContent = new Date().getFullYear();
-
-    // Animated mobile menu (slide + fade)
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener('click', () => {
-        if (mobileMenu.classList.contains('scale-y-0')) {
-          mobileMenu.classList.remove('hidden');
-          setTimeout(() => {
-            mobileMenu.classList.remove('scale-y-0','opacity-0');
-            mobileMenu.classList.add('scale-y-100','opacity-100');
-          }, 10);
-        } else {
-          mobileMenu.classList.add('scale-y-0','opacity-0');
-          setTimeout(() => mobileMenu.classList.add('hidden'), 250);
-        }
-      });
-    }
-
-    // Floating WhatsApp: fold on scroll
     (function(){
-      const floater = document.getElementById('floatWa');
-      if (!floater) return;
-      floater.classList.add('transition','duration-300');
-      let lastY = window.scrollY, ticking = false;
-      const onScroll = () => {
-        const y = window.scrollY;
-        if (y > lastY + 5) {
-          floater.classList.add('translate-y-24','opacity-0','scale-95');
-        } else if (y < lastY - 5) {
-          floater.classList.remove('translate-y-24','opacity-0','scale-95');
-        }
-        lastY = y; ticking = false;
-      };
-      window.addEventListener('scroll', () => {
-        if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
-      }, { passive:true });
+      if (window.BRAQZ_APP_LOADED) return;
+
+      // WhatsApp fallback links + fold
+      function setWA(id){
+        var el = document.getElementById(id);
+        if (!el) return;
+        var num = '2349136627644';
+        el.href = 'https://wa.me/' + num + '?text=' + encodeURIComponent('Hello BRAQZ!');
+      }
+      setWA('floatWa'); setWA('heroWa');
+
+      var floater = document.getElementById('floatWa');
+      if (floater) {
+        var lastY = window.scrollY;
+        window.addEventListener('scroll', function(){
+          var y = window.scrollY;
+          if (y > lastY + 5) { floater.style.transform='translateY(96px) scale(.95)'; floater.style.opacity='0'; }
+          else if (y < lastY - 5) { floater.style.transform=''; floater.style.opacity=''; }
+          lastY = y;
+        }, {passive:true});
+      }
+
+      // Simple menu toggle
+      var btn  = document.getElementById('menuBtn');
+      var menu = document.getElementById('mobileMenu');
+      if (btn && menu) btn.addEventListener('click', function(){ menu.classList.toggle('hidden'); });
+
+      console.warn('BRAQZ fallback active on this page (app.js not detected).');
     })();
   </script>
 </body>
