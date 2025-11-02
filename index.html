@@ -10,10 +10,10 @@
   <!-- Fonts: Poppins (UI) + Baloo 2 (brand) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
 
-  <!-- Tailwind (CDN — development only: use a build step for production) -->
-  <script src="https://cdn.tailwindcss.com" defer crossorigin="anonymous"></script>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -28,31 +28,32 @@
   </script>
   <style>
     html{scroll-behavior:smooth}
+    body{font-family:Poppins,system-ui,sans-serif}
     .brand{font-family:'Baloo 2',system-ui,sans-serif; letter-spacing:.5px}
   </style>
 </head>
-<body class="bg-sage text-olive font-sans">
+<body class="bg-sage text-olive">
 
-  <!-- ===== Header (Fire icon + BRAQZ!, hamburger menu) ===== -->
+  <!-- ===== Header (Fire icon + BIG BRAQZ!, animated menu) ===== -->
   <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3">
-        <!-- Use fire.png; fallback to logo.png if not present -->
-        <img src="assets/fire.png" onerror="this.src='assets/logo.png'" alt="BRAQZ fire" class="w-9 h-9 rounded-xl object-contain" />
-        <div class="brand text-xl font-extrabold tracking-wide">BRAQZ!</div>
+        <img src="assets/fire.png" onerror="this.src='assets/logo.png'" alt="BRAQZ fire" class="w-10 h-10 rounded-xl object-contain" />
+        <div class="brand text-2xl sm:text-3xl font-extrabold tracking-wide">BRAQZ!</div>
       </a>
 
       <!-- Hamburger -->
       <button id="menuBtn" aria-label="Open menu"
-        class="inline-flex items-center justify-center w-10 h-10 rounded-xl border text-olive hover:bg-olive hover:text-white transition">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+        class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-olive hover:bg-olive hover:text-white transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
           <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
         </svg>
       </button>
     </div>
 
-    <!-- Slide-down mobile menu -->
-    <nav id="mobileMenu" class="hidden border-t bg-white transition-all duration-300 transform scale-y-0 origin-top opacity-0">
+    <!-- Slide/fade mobile menu -->
+    <nav id="mobileMenu"
+         class="hidden border-t bg-white transition-all duration-300 transform scale-y-0 origin-top opacity-0">
       <div class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
         <a class="py-2" href="shop.html">Shop</a>
         <div class="grid grid-cols-3 gap-2 text-xs text-olive/80">
@@ -63,7 +64,6 @@
         <a class="py-2" href="about.html">About BRAQZ!</a>
         <a class="py-2" href="faq.html">FAQ</a>
         <a class="py-2" href="contact.html">Contact</a>
-        <!-- Suggested future pages -->
         <hr class="my-2">
         <a class="py-2" href="#">Size Guide</a>
         <a class="py-2" href="#">Returns & Delivery</a>
@@ -81,7 +81,7 @@
         <p class="mt-4 text-olive/80">Authentic-looking crocs & clogs. Lightweight, water-friendly and built for everyday use in Abuja.</p>
         <div class="mt-6 flex flex-wrap gap-3">
           <a href="shop.html" class="inline-block rounded-2xl bg-olive text-white px-6 py-3 text-sm font-semibold shadow-soft hover:scale-105 transition">Browse Shop</a>
-          <a id="heroWa" href="#" target="_blank" class="inline-block rounded-2xl border-2 border-olive text-olive px-6 py-3 text-sm font-semibold hover:bg-olive hover:text-white transition">Order[...]</a>
+          <a id="heroWa" href="#" target="_blank" class="inline-block rounded-2xl border-2 border-olive text-olive px-6 py-3 text-sm font-semibold hover:bg-olive hover:text-white transition">Order on WhatsApp</a>
         </div>
         <div class="mt-4 text-xs text-olive/70">Free in-town delivery on orders ₦100,000+</div>
       </div>
@@ -98,15 +98,15 @@
       <div class="grid sm:grid-cols-3 gap-5">
         <a href="shop.html#Clogs" class="group block rounded-2xl overflow-hidden border bg-white shadow-soft">
           <img src="https://images.unsplash.com/photo-1604175531406-0e0a9c9c3d2f?q=80&w=1200&auto=format&fit=crop" class="h-44 w-full object-cover group-hover:opacity-90 transition" alt="Clogs"/>
-          <div class="p-4 flex items-center justify-between"><div><div class="font-semibold">Clogs</div><div class="text-xs text-olive/70">Everyday comfort</div></div><span class="text-olive text[...]</span></div>
+          <div class="p-4 flex items-center justify-between"><div><div class="font-semibold">Clogs</div><div class="text-xs text-olive/70">Everyday comfort</div></div><span class="text-olive text-sm">Browse →</span></div>
         </a>
         <a href="shop.html#Crocs" class="group block rounded-2xl overflow-hidden border bg-white shadow-soft">
           <img src="https://images.unsplash.com/photo-1622844997996-531f1b512b0b?q=80&w=1200&auto=format&fit=crop" class="h-44 w-full object-cover group-hover:opacity-90 transition" alt="Crocs"/>
-          <div class="p-4 flex items-center justify-between"><div><div class="font-semibold">Crocs</div><div class="text-xs text-olive/70">Classic & platform</div></div><span class="text-olive te[...]</span></div>
+          <div class="p-4 flex items-center justify-between"><div><div class="font-semibold">Crocs</div><div class="text-xs text-olive/70">Classic & platform</div></div><span class="text-olive text-sm">Browse →</span></div>
         </a>
         <a href="shop.html#Slides" class="group block rounded-2xl overflow-hidden border bg-white shadow-soft">
           <img src="https://images.unsplash.com/photo-1605731414532-6b8d6eaeb1ae?q=80&w=1200&auto=format&fit=crop" class="h-44 w-full object-cover group-hover:opacity-90 transition" alt="Slides"/>
-          <div class="p-4 flex items-center justify-between"><div><div class="font-semibold">Slides</div><div class="text-xs text-olive/70">Light & breathable</div></div><span class="text-olive t[...]</span></div>
+          <div class="p-4 flex items-center justify-between"><div><div class="font-semibold">Slides</div><div class="text-xs text-olive/70">Light & breathable</div></div><span class="text-olive text-sm">Browse →</span></div>
         </a>
       </div>
     </div>
@@ -120,10 +120,64 @@
     </div>
   </footer>
 
-  <!-- Floating WhatsApp -->
-  <a id="floatWa" href="#" target="_blank" class="fixed bottom-5 right-5 rounded-pill bg-neon text-olive px-5 py-3 shadow-soft text-sm font-semibold">Chat on WhatsApp</a>
+  <!-- Floating WhatsApp (folds on scroll) -->
+  <a id="floatWa" href="#" target="_blank"
+     class="fixed bottom-5 right-5 rounded-pill bg-neon text-olive px-5 py-3 shadow-soft text-sm font-semibold transition duration-300">
+     Chat on WhatsApp
+  </a>
 
-  <!-- Shared JS (WhatsApp wiring, menu toggle, year, active nav) -->
-  <script src="assets/app.js"></script>
+  <!-- ===== One self-contained script (menu animation + WhatsApp + year + fold button) ===== -->
+  <script>
+    // Brand + WhatsApp wiring
+    const BRAND = { name: 'BRAQZ!', whatsapp: '+2349136627644' };
+    const waNum  = BRAND.whatsapp.replace(/[^0-9]/g, '');
+    const waLink = (text) => `https://wa.me/${waNum}?text=${encodeURIComponent(text || 'Hello BRAQZ!')}`;
+
+    ['heroWa','floatWa','contactWa'].forEach(id=>{
+      const el = document.getElementById(id);
+      if (el) el.href = waLink();
+    });
+
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+
+    // Animated mobile menu (slide + fade)
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('scale-y-0')) {
+          mobileMenu.classList.remove('hidden');
+          setTimeout(() => {
+            mobileMenu.classList.remove('scale-y-0','opacity-0');
+            mobileMenu.classList.add('scale-y-100','opacity-100');
+          }, 10);
+        } else {
+          mobileMenu.classList.add('scale-y-0','opacity-0');
+          setTimeout(() => mobileMenu.classList.add('hidden'), 250);
+        }
+      });
+    }
+
+    // Floating WhatsApp: fold on scroll
+    (function(){
+      const floater = document.getElementById('floatWa');
+      if (!floater) return;
+      floater.classList.add('transition','duration-300');
+      let lastY = window.scrollY, ticking = false;
+      const onScroll = () => {
+        const y = window.scrollY;
+        if (y > lastY + 5) {
+          floater.classList.add('translate-y-24','opacity-0','scale-95');
+        } else if (y < lastY - 5) {
+          floater.classList.remove('translate-y-24','opacity-0','scale-95');
+        }
+        lastY = y; ticking = false;
+      };
+      window.addEventListener('scroll', () => {
+        if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
+      }, { passive:true });
+    })();
+  </script>
 </body>
 </html>
