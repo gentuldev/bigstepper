@@ -126,6 +126,50 @@
 <!-- Shared JS (must be included on ALL pages) -->
 <!-- Shared site logic (menu animation + WA fold) -->
 <script src="assets/app.js"></script>
+  <script>
+  // If app.js didn't run (flag not present), run this minimal fallback
+  (function(){
+    if (window.BRAQZ_APP_LOADED) return; // app.js ran, no need for fallback
+
+    // --- WhatsApp fallback link
+    var floater = document.getElementById('floatWa');
+    if (floater) {
+      var num = '2349136627644';  // your number without +
+      var link = 'https://wa.me/' + num + '?text=' + encodeURIComponent('Hello BRAQZ!');
+      floater.setAttribute('href', link);
+
+      // simple fold on scroll
+      var lastY = window.scrollY;
+      window.addEventListener('scroll', function(){
+        var y = window.scrollY;
+        if (y > lastY + 5) {
+          floater.style.transform = 'translateY(96px) scale(0.95)';
+          floater.style.opacity = '0';
+        } else if (y < lastY - 5) {
+          floater.style.transform = '';
+          floater.style.opacity = '';
+        }
+        lastY = y;
+      }, {passive:true});
+    }
+
+    // --- Menu fallback toggle
+    var btn = document.getElementById('menuBtn');
+    var menu = document.getElementById('mobileMenu');
+    if (btn && menu) {
+      btn.addEventListener('click', function(){
+        // minimal toggle just removes/sets "hidden"
+        if (menu.classList.contains('hidden')) {
+          menu.classList.remove('hidden');
+        } else {
+          menu.classList.add('hidden');
+        }
+      });
+    }
+
+    console.warn('BRAQZ fallback active on this page (app.js not detected).');
+  })();
+</script>
 
 <!-- Page-specific logic for the shop grid, modal, filters -->
 </body>
