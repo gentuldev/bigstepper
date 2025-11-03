@@ -32,44 +32,41 @@
 </head>
 <body class="bg-sage text-olive">
 
-  <!-- ===== Header (matches other pages) ===== -->
-  <header class="relative sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3">
-        <img src="assets/logo.png" alt="BRAQZ! — stay Cool!" class="h-10 sm:h-12 w-auto rounded-xl object-contain" />
-        <span class="brand text-2xl font-extrabold text-olive">BRAQZ!</span>
-      </a>
+  <!-- ===== Header (logo only, left-aligned) ===== -->
+<header class="sticky top-0 z-50 border-b shadow-[0_2px_10px_rgba(0,0,0,0.05)] bg-gradient-to-r from-[#cbd3b9] via-white/80 to-white backdrop-blur relative">
+  <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
+    
+    <!-- Brand: feet logo only (bigger) -->
+    <a href="index.html" class="flex items-center min-w-0">
+      <img src="assets/logo-feet.png" alt="BRAQZ logo"
+           class="h-12 sm:h-14 w-auto object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]">
+    </a>
 
-      <!-- Hamburger -->
-      <button id="menuBtn" aria-label="Open menu"
-        class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-olive hover:bg-olive hover:text-white transition">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
-        </svg>
-      </button>
-    </div>
+    <!-- Hamburger -->
+    <button id="menuBtn" aria-label="Open menu"
+            class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-[#111]/80 hover:bg-[#111] hover:text-white transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+      </svg>
+    </button>
+  </div>
 
-    <!-- Mobile menu (simple show/hide) -->
-    <nav id="mobileMenu"
-         class="hidden absolute top-full inset-x-0 z-[60] border-t bg-white text-olive shadow-md">
-      <div class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
-        <a class="py-2" href="shop.html">Shop</a>
-        <div class="grid grid-cols-3 gap-2 text-xs text-olive/80">
-          <a href="shop.html#Crocs"  class="rounded-full border px-3 py-2 text-center">Crocs</a>
-          <a href="shop.html#Clogs"  class="rounded-full border px-3 py-2 text-center">Clogs</a>
-          <a href="shop.html#Slides" class="rounded-full border px-3 py-2 text-center">Slides</a>
-        </div>
-        <a class="py-2" href="about.html">About BRAQZ!</a>
-        <a class="py-2" href="faq.html">FAQ</a>
-        <a class="py-2" href="contact.html">Contact</a>
-        <hr class="my-2">
-        <a class="py-2" href="#">Size Guide</a>
-        <a class="py-2" href="#">Returns & Delivery</a>
-        <a class="py-2" href="#">Track Order (WhatsApp)</a>
-        <a class="py-2" href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+  <!-- Slide-down mobile menu -->
+  <nav id="mobileMenu"
+       class="hidden absolute top-full inset-x-0 z-[60] bg-white border-b shadow-md">
+    <div class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
+      <a class="py-2" href="shop.html">Shop</a>
+      <div class="grid grid-cols-3 gap-2 text-xs text-black/70">
+        <a href="shop.html#Crocs"  class="rounded-full border px-3 py-2 text-center">Crocs</a>
+        <a href="shop.html#Clogs"  class="rounded-full border px-3 py-2 text-center">Clogs</a>
+        <a href="shop.html#Slides" class="rounded-full border px-3 py-2 text-center">Slides</a>
       </div>
-    </nav>
-  </header>
+      <a class="py-2" href="about.html">About</a>
+      <a class="py-2" href="faq.html">FAQ</a>
+      <a class="py-2" href="contact.html">Contact</a>
+    </div>
+  </nav>
+</header>
 
   <!-- ===== Main ===== -->
   <main class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-6">
