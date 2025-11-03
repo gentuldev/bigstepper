@@ -6,116 +6,124 @@
   <title>Shop — BRAQZ!</title>
   <link rel="icon" href="assets/logo.png" />
 
-  <!-- Fonts: Poppins + Baloo 2 -->
+  <!-- SEO -->
+  <meta name="description" content="Shop BRAQZ — Crocs, clogs & slides built for everyday comfort. Lightweight, water-friendly. Nationwide delivery.">
+  <meta property="og:title" content="Shop — BRAQZ!">
+  <meta property="og:description" content="Crocs, clogs & slides. Lightweight, water-friendly. Stay Cool!">
+  <meta property="og:image" content="https://gentuldev.github.io/bigstepper/assets/logo.png">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
 
-  <!-- Tailwind (CDN) -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    /* keep config simple; no animation classes needed now */
     tailwind.config = {
-      theme: {
-        fontFamily: { sans: ['Poppins','ui-sans-serif','system-ui'] },
-        extend: {
-          colors: { olive:'#3a4a2b', sage:'#c9d1b4', neon:'#8cff6a' },
-          borderRadius: { pill:'9999px' },
-          boxShadow: { soft:'0 10px 30px rgba(0,0,0,.08)' }
+      theme:{
+        fontFamily:{ sans:['Poppins','ui-sans-serif','system-ui'] },
+        extend:{
+          colors:{ olive:'#2f3b26', sage:'#f6f7f4', neon:'#8cff6a', ink:'#111111' },
+          borderRadius:{ pill:'9999px' },
+          boxShadow:{ soft:'0 8px 24px rgba(0,0,0,.06)' }
         }
-      }
+      },
+      safelist: [
+        'transform','origin-top','scale-y-0','scale-y-100','opacity-0','opacity-100'
+      ]
     }
   </script>
-
   <style>
     body{font-family:Poppins,system-ui,sans-serif}
-    .brand{font-family:'Baloo 2',system-ui,sans-serif;letter-spacing:.5px}
+    .brand{font-family:'Baloo 2',system-ui,sans-serif;letter-spacing:.2px}
   </style>
 </head>
-<body class="bg-sage text-olive">
+<body class="bg-white text-ink">
 
-  <!-- ===== Header (logo only, left-aligned) ===== -->
-<header class="sticky top-0 z-50 border-b shadow-[0_2px_10px_rgba(0,0,0,0.05)] bg-gradient-to-r from-[#cbd3b9] via-white/80 to-white backdrop-blur relative">
-  <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
-    
-    <!-- Brand: feet logo only (bigger) -->
-    <a href="index.html" class="flex items-center min-w-0">
-      <img src="assets/logo-feet.png" alt="BRAQZ logo"
-           class="h-12 sm:h-14 w-auto object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]">
-    </a>
+  <!-- ===== Header (logo-only, left) ===== -->
+  <header class="sticky top-0 z-50 border-b shadow-[0_2px_10px_rgba(0,0,0,0.05)] bg-gradient-to-r from-[#cbd3b9] via-white/80 to-white backdrop-blur relative">
+    <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
+      <a href="index.html" class="flex items-center min-w-0">
+        <img src="assets/logo-feet.png" alt="BRAQZ logo"
+             class="h-12 sm:h-14 w-auto object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]">
+      </a>
+      <button id="menuBtn" aria-label="Open menu"
+              class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-[#111]/80 hover:bg-[#111] hover:text-white transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+        </svg>
+      </button>
+    </div>
+    <nav id="mobileMenu"
+         class="hidden absolute top-full inset-x-0 z-[60] bg-white border-b shadow-md transform origin-top scale-y-0 opacity-0 transition duration-200">
+      <div class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
+        <a class="py-2" href="shop.html">Shop</a>
+        <div class="grid grid-cols-3 gap-2 text-xs text-black/70">
+          <a href="#Crocs"  class="rounded-full border px-3 py-2 text-center">Crocs</a>
+          <a href="#Clogs"  class="rounded-full border px-3 py-2 text-center">Clogs</a>
+          <a href="#Slides" class="rounded-full border px-3 py-2 text-center">Slides</a>
+        </div>
+        <a class="py-2" href="about.html">About</a>
+        <a class="py-2" href="faq.html">FAQ</a>
+        <a class="py-2" href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-    <!-- Hamburger -->
-    <button id="menuBtn" aria-label="Open menu"
-            class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-[#111]/80 hover:bg-[#111] hover:text-white transition">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
-      </svg>
-    </button>
+  <!-- ===== Page Title ===== -->
+  <section class="max-w-6xl mx-auto px-4">
+    <div class="flex items-end justify-between py-6">
+      <div>
+        <h1 class="brand text-3xl font-extrabold">Shop</h1>
+        <p class="text-sm text-ink/70">Filter, search and order via WhatsApp.</p>
+      </div>
+      <div id="count" class="text-sm text-ink/60">0 items</div>
+    </div>
+  </section>
+
+  <!-- ===== Sticky Controls ===== -->
+  <div class="sticky top-[64px] z-40 border-y bg-white/80 backdrop-blur">
+    <div class="max-w-6xl mx-auto px-4 py-3 grid gap-3 sm:grid-cols-3">
+      <!-- Categories -->
+      <div class="flex flex-wrap gap-2">
+        <button data-filter="All"    class="flt active rounded-pill border px-3 py-1.5 text-sm bg-ink text-white">All</button>
+        <button data-filter="Crocs"  class="flt rounded-pill border px-3 py-1.5 text-sm">Crocs</button>
+        <button data-filter="Clogs"  class="flt rounded-pill border px-3 py-1.5 text-sm">Clogs</button>
+        <button data-filter="Slides" class="flt rounded-pill border px-3 py-1.5 text-sm">Slides</button>
+      </div>
+      <!-- Search -->
+      <div>
+        <input id="q" type="search" placeholder="Search products…" class="w-full border rounded-pill px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600">
+      </div>
+      <!-- Sort -->
+      <div class="flex justify-end">
+        <select id="sort" class="border rounded-pill px-3 py-2 text-sm">
+          <option value="relevance">Sort: Relevance</option>
+          <option value="price_asc">Price: Low to High</option>
+          <option value="price_desc">Price: High to Low</option>
+          <option value="name_asc">Name: A–Z</option>
+        </select>
+      </div>
+    </div>
   </div>
 
-  <!-- Slide-down mobile menu -->
-  <nav id="mobileMenu"
-       class="hidden absolute top-full inset-x-0 z-[60] bg-white border-b shadow-md">
-    <div class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
-      <a class="py-2" href="shop.html">Shop</a>
-      <div class="grid grid-cols-3 gap-2 text-xs text-black/70">
-        <a href="shop.html#Crocs"  class="rounded-full border px-3 py-2 text-center">Crocs</a>
-        <a href="shop.html#Clogs"  class="rounded-full border px-3 py-2 text-center">Clogs</a>
-        <a href="shop.html#Slides" class="rounded-full border px-3 py-2 text-center">Slides</a>
-      </div>
-      <a class="py-2" href="about.html">About</a>
-      <a class="py-2" href="faq.html">FAQ</a>
-      <a class="py-2" href="contact.html">Contact</a>
-    </div>
-  </nav>
-</header>
+  <!-- ===== Grid ===== -->
+  <main class="max-w-6xl mx-auto px-4 py-6">
+    <div id="grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
 
-  <!-- ===== Main ===== -->
-  <main class="max-w-6xl mx-auto px-4 py-8">
-    <div class="flex items-end justify-between mb-6">
-      <div>
-        <h1 class="text-2xl font-extrabold brand">Shop</h1>
-        <p class="text-sm text-olive/70">Filter by category and explore.</p>
-      </div>
-      <div class="flex gap-2 text-sm">
-        <button class="rounded-pill border px-3 py-2 bg-white">All</button>
-        <button class="rounded-pill border px-3 py-2 bg-white">Crocs</button>
-        <button class="rounded-pill border px-3 py-2 bg-white">Clogs</button>
-        <button class="rounded-pill border px-3 py-2 bg-white">Slides</button>
-      </div>
-    </div>
-
-    <!-- Design-only placeholders for now -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <article class="bg-white border rounded-2xl overflow-hidden shadow-soft">
-        <div class="h-56 bg-olive/20"></div>
-        <div class="p-4 space-y-2">
-          <h3 class="font-semibold">Product Name</h3>
-          <p class="text-sm text-olive/70">Category</p>
-          <a class="inline-block mt-2 rounded-2xl bg-olive text-white px-3 py-2 text-sm">View</a>
-        </div>
-      </article>
-      <article class="bg-white border rounded-2xl overflow-hidden shadow-soft">
-        <div class="h-56 bg-olive/20"></div>
-        <div class="p-4 space-y-2">
-          <h3 class="font-semibold">Product Name</h3>
-          <p class="text-sm text-olive/70">Category</p>
-          <a class="inline-block mt-2 rounded-2xl bg-olive text-white px-3 py-2 text-sm">View</a>
-        </div>
-      </article>
-      <article class="bg-white border rounded-2xl overflow-hidden shadow-soft">
-        <div class="h-56 bg-olive/20"></div>
-        <div class="p-4 space-y-2">
-          <h3 class="font-semibold">Product Name</h3>
-          <p class="text-sm text-olive/70">Category</p>
-          <a class="inline-block mt-2 rounded-2xl bg-olive text-white px-3 py-2 text-sm">View</a>
-        </div>
-      </article>
+    <!-- Load more -->
+    <div class="mt-8 text-center">
+      <button id="loadMore" class="hidden inline-flex items-center gap-2 rounded-pill border px-5 py-3 text-sm">
+        Load more
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M13 5l7 7-7 7-1.4-1.4L16.2 13H4v-2h12.2l-4.6-4.6L13 5z"/></svg>
+      </button>
     </div>
   </main>
 
   <!-- ===== Footer ===== -->
-  <footer class="border-t bg-white">
+  <footer class="border-t">
     <div class="max-w-6xl mx-auto px-4 py-8 text-sm flex items-center justify-between">
       <div>© <span id="year"></span> BRAQZ. All rights reserved.</div>
       <a href="#" class="underline">Back to top</a>
@@ -128,46 +136,287 @@
      Chat on WhatsApp
   </a>
 
-  <!-- ===== Scripts ===== -->
-  <script src="assets/app.js"></script>
+  <!-- Shared site logic (if you have one) -->
+  <script src="assets/app.js" defer></script>
 
-  <!-- Fallback: runs ONLY if app.js didn’t load or failed -->
+  <!-- Page logic -->
   <script>
-    (function(){
-      if (window.BRAQZ_APP_LOADED) return; // app.js ran; skip fallback
+  (function(){
+    const waNum = '2349136627644'; // your number without +
+    const wa = (text) => 'https://wa.me/'+waNum+'?text='+encodeURIComponent(text);
+    const Naira = n => new Intl.NumberFormat('en-NG',{style:'currency',currency:'NGN',maximumFractionDigits:0}).format(n);
 
-      // WhatsApp fallback
-      var floater = document.getElementById('floatWa');
-      if (floater) {
-        var num = '2349136627644';
-        var link = 'https://wa.me/' + num + '?text=' + encodeURIComponent('Hello BRAQZ!');
-        floater.setAttribute('href', link);
+    const grid = document.getElementById('grid');
+    const countEl = document.getElementById('count');
+    const qInput = document.getElementById('q');
+    const sortSel = document.getElementById('sort');
+    const loadMoreBtn = document.getElementById('loadMore');
+    const fltBtns = Array.from(document.querySelectorAll('.flt'));
 
-        var lastY = window.scrollY;
-        window.addEventListener('scroll', function(){
-          var y = window.scrollY;
-          if (y > lastY + 5) {
-            floater.style.transform = 'translateY(96px) scale(0.95)';
-            floater.style.opacity = '0';
-          } else if (y < lastY - 5) {
-            floater.style.transform = '';
-            floater.style.opacity = '';
-          }
-          lastY = y;
-        }, {passive:true});
-      }
+    let all = [];   // full dataset
+    let view = [];  // filtered result
+    let page = 1;
+    const PAGE_SIZE = 9;
 
-      // SIMPLE menu toggle (no animations required)
-      var btn  = document.getElementById('menuBtn');
-      var menu = document.getElementById('mobileMenu');
-      if (btn && menu) {
-        btn.addEventListener('click', function(){
-          menu.classList.toggle('hidden');
+    // ===== Skeleton while loading
+    function showSkeleton(n=6){
+      grid.innerHTML = Array.from({length:n}).map(()=>`
+        <div class="animate-pulse bg-white border rounded-2xl overflow-hidden">
+          <div class="aspect-[4/3] bg-slate-200"></div>
+          <div class="p-4 space-y-3">
+            <div class="h-4 bg-slate-200 rounded"></div>
+            <div class="h-4 w-1/2 bg-slate-200 rounded"></div>
+            <div class="h-9 w-32 bg-slate-200 rounded"></div>
+          </div>
+        </div>`).join('');
+    }
+    showSkeleton();
+
+    // ===== Render cards
+    function renderCards(list, append=false){
+      if(!append) grid.innerHTML = '';
+      list.forEach(p=>{
+        const colors = Array.isArray(p.colors) ? p.colors : [];
+        const sizes  = Array.isArray(p.sizes) ? p.sizes  : [];
+
+        const article = document.createElement('article');
+        article.className = 'bg-white border rounded-2xl overflow-hidden shadow-soft flex flex-col';
+        article.setAttribute('itemscope','');
+        article.setAttribute('itemtype','https://schema.org/Product');
+
+        article.innerHTML = `
+          <div class="relative">
+            <div class="aspect-[4/3] bg-slate-100 overflow-hidden">
+              <img src="${p.image||'assets/cat-clogs.jpg'}"
+                   alt="${p.name||'Product image'}"
+                   class="w-full h-full object-cover" loading="lazy"
+                   onerror="this.src='assets/cat-clogs.jpg'">
+            </div>
+            ${p.badge?`<span class="absolute top-3 left-3 rounded-full bg-ink text-white text-xs px-2 py-1">${p.badge}</span>`:''}
+          </div>
+          <div class="p-4 flex-1 flex flex-col gap-3">
+            <div>
+              <h3 class="font-semibold leading-tight" itemprop="name">${p.name}</h3>
+              <div class="text-sm text-ink/60">${p.category||''}</div>
+              <meta itemprop="category" content="${p.category||''}" />
+              <link itemprop="image" href="${p.image||''}" />
+            </div>
+
+            <div class="text-lg font-semibold flex items-center gap-2" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <meta itemprop="priceCurrency" content="NGN" />
+              <meta itemprop="availability" content="https://schema.org/InStock" />
+              <span itemprop="price">${(p.price||0)}</span>
+              <span>${Naira(p.price||0)}</span>
+              ${p.compareAt && p.compareAt > (p.price||0)
+                ? `<span class="text-ink/50 line-through text-sm">${Naira(p.compareAt)}</span>
+                   <span class="ml-1 text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-pill">Sale</span>`
+                : ''
+              }
+            </div>
+
+            <div class="flex items-center gap-2 text-sm">
+              ${colors.length
+                ? `<div class="flex items-center gap-1">
+                     ${colors.map(c=>`<button type="button" class="w-5 h-5 rounded-full border" title="${c}" style="background:${c.toLowerCase()};" data-color="${c}"></button>`).join('')}
+                   </div>`
+                : ''
+              }
+              ${sizes.length
+                ? `<select class="sizeSel rounded-xl border px-2 py-2 ml-auto">
+                     ${sizes.map(s=>`<option>EU ${s}</option>`).join('')}
+                   </select>`
+                : ''
+              }
+            </div>
+
+            <a class="orderBtn inline-flex items-center justify-center gap-2 rounded-xl bg-ink text-white px-3 py-2 text-sm" target="_blank">
+              Order on WhatsApp
+            </a>
+          </div>
+        `;
+        grid.appendChild(article);
+
+        const colorBtns = article.querySelectorAll('[data-color]');
+        const sizeSel   = article.querySelector('.sizeSel');
+        const btn       = article.querySelector('.orderBtn');
+
+        let chosenColor = colors[0] || '—';
+        if (colorBtns.length) {
+          // set first as selected ring
+          colorBtns[0].classList.add('ring-2','ring-emerald-600');
+        }
+
+        const orderText = () => {
+          const s = sizeSel ? sizeSel.value.replace('EU ','') : '—';
+          return `Hello BRAQZ!
+
+I'd like to order:
+• Product: ${p.name}
+• Category: ${p.category||'-'}
+• Color: ${chosenColor}
+• Size: EU ${s}
+• Price: ${Naira(p.price||0)}
+• ID: ${p.id||'-'}`;
+        };
+
+        btn.href = wa(orderText());
+        colorBtns.forEach(b=>{
+          b.addEventListener('click', ()=>{
+            colorBtns.forEach(x=>x.classList.remove('ring-2','ring-emerald-600'));
+            b.classList.add('ring-2','ring-emerald-600');
+            chosenColor = b.dataset.color;
+            btn.href = wa(orderText());
+          });
+        });
+        if (sizeSel) sizeSel.addEventListener('change', ()=> btn.href = wa(orderText()));
+      });
+
+      // show total in view (not just page)
+      countEl.textContent = `${view.length} item${view.length!==1?'s':''}`;
+    }
+
+    // ===== Filters/sort/pagination
+    function applyFilters(){
+      const active = (document.querySelector('.flt.active')||{}).dataset?.filter || 'All';
+      const q = (qInput.value||'').trim().toLowerCase();
+
+      view = all.filter(p=>{
+        const matchCat = active==='All' ? true : (p.category===active);
+        const hay = (p.name+' '+(p.category||'')).toLowerCase();
+        const matchQ = q ? hay.includes(q) : true;
+        return matchCat && matchQ;
+      });
+
+      const mode = sortSel.value;
+      if(mode==='price_asc')   view.sort((a,b)=>(a.price||0)-(b.price||0));
+      if(mode==='price_desc')  view.sort((a,b)=>(b.price||0)-(a.price||0));
+      if(mode==='name_asc')    view.sort((a,b)=> (a.name||'').localeCompare(b.name||''));
+      // relevance: leave order
+
+      page = 1;
+      const slice = view.slice(0, PAGE_SIZE);
+      renderCards(slice);
+      loadMoreBtn.classList.toggle('hidden', view.length<=PAGE_SIZE);
+
+      if (view.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full text-center py-12">
+            <div class="text-lg font-semibold">No matches</div>
+            <div class="text-sm text-ink/60 mt-1">Try another keyword or clear filters.</div>
+            <button id="clearFilters" class="mt-4 rounded-pill border px-4 py-2 text-sm">Clear filters</button>
+          </div>`;
+        document.getElementById('clearFilters').addEventListener('click', ()=>{
+          qInput.value = '';
+          fltBtns.forEach(x=>x.classList.remove('active','bg-ink','text-white'));
+          document.querySelector('[data-filter="All"]').classList.add('active','bg-ink','text-white');
+          sortSel.value = 'relevance';
+          applyFilters();
         });
       }
+    }
 
-      console.warn('BRAQZ fallback active on this page (app.js not detected).');
+    function loadMore(){
+      page++;
+      const end = page*PAGE_SIZE;
+      const chunk = view.slice((page-1)*PAGE_SIZE, end);
+      renderCards(chunk, true);
+      if(end>=view.length) loadMoreBtn.classList.add('hidden');
+    }
+
+    // category filter buttons
+    fltBtns.forEach(b=>{
+      b.addEventListener('click', ()=>{
+        fltBtns.forEach(x=>x.classList.remove('active','bg-ink','text-white'));
+        b.classList.add('active','bg-ink','text-white');
+        // update hash (deep link)
+        location.hash = b.dataset.filter==='All' ? '' : ('#'+b.dataset.filter);
+        applyFilters();
+      });
+    });
+
+    // search + sort
+    qInput.addEventListener('input', applyFilters);
+    sortSel.addEventListener('change', ()=>{
+      const usp = new URLSearchParams(location.search);
+      usp.set('sort', sortSel.value);
+      history.replaceState({}, '', location.pathname + '?' + usp.toString() + location.hash);
+      applyFilters();
+    });
+    loadMoreBtn.addEventListener('click', loadMore);
+
+    // hash filter (deep-link) + sort from URL
+    function applyHashFilter(){
+      const h = (location.hash||'').replace('#','');
+      if(!h) return;
+      const btn = document.querySelector(`.flt[data-filter="${h}"]`);
+      if(btn){
+        fltBtns.forEach(x=>x.classList.remove('active','bg-ink','text-white'));
+        btn.classList.add('active','bg-ink','text-white');
+      }
+    }
+    (function initSortFromURL(){
+      const usp = new URLSearchParams(location.search);
+      const s = usp.get('sort');
+      if(s) sortSel.value = s;
     })();
+    window.addEventListener('hashchange', ()=>{ applyHashFilter(); applyFilters(); });
+
+    // ===== Data load
+    async function loadData(){
+      try{
+        const r = await fetch('assets/products.json', {cache:'no-store'});
+        if(!r.ok) throw new Error('HTTP '+r.status);
+        const data = await r.json();
+        if(!Array.isArray(data)) throw new Error('Invalid JSON');
+        all = data;
+      }catch(e){
+        console.warn('products.json missing/invalid — using fallback demo set.', e);
+        all = [
+          { id:'c1', name:'Classic Clog (Unisex)', price:28500, compareAt:32000, category:'Clogs',  image:'assets/cat-clogs.jpg',  colors:['Black','Navy','White'], sizes:['41','42','43'], badge:'New' },
+          { id:'c2', name:'Echo Clog (Men)',       price:45500, category:'Crocs',  image:'assets/cat-crocs.jpg',  colors:['Black','Grey'],       sizes:['44','45'] },
+          { id:'s1', name:'LiteRide Slide',         price:22500, category:'Slides', image:'assets/cat-slides.jpg', colors:['Black','#0f172a'],    sizes:['41','42'] },
+          { id:'g1', name:'Garden Clog',            price:18500, category:'Clogs',  image:'assets/cat-clogs.jpg',  colors:['Brown','Grey'],       sizes:['41','42','43'] },
+          { id:'m1', name:'Marbled Clog',           price:36500, category:'Crocs',  image:'assets/cat-crocs.jpg',  colors:['Blue','Red'],         sizes:['42','43','44'] }
+        ];
+      }
+      applyHashFilter();
+      applyFilters();
+    }
+    loadData();
+
+    // ===== WA floater & year (fallback if app.js didn’t set)
+    const floater=document.getElementById('floatWa'); if(floater) floater.href=wa('Hello BRAQZ!');
+    const y=document.getElementById('year'); if(y) y.textContent = new Date().getFullYear();
+
+    // ===== Animated mobile menu (works even if app.js fails)
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    if (btn && menu) {
+      function openMenu(){
+        menu.classList.remove('hidden','scale-y-0','opacity-0');
+        menu.classList.add('scale-y-100','opacity-100');
+        btn.setAttribute('aria-expanded','true');
+        document.addEventListener('keydown',onKey);
+        document.addEventListener('click',onOutside);
+      }
+      function closeMenu(){
+        menu.classList.remove('scale-y-100','opacity-100');
+        menu.classList.add('scale-y-0','opacity-0');
+        btn.setAttribute('aria-expanded','false');
+        setTimeout(()=> menu.classList.add('hidden'), 200);
+        document.removeEventListener('keydown',onKey);
+        document.removeEventListener('click',onOutside);
+      }
+      function onKey(e){ if(e.key==='Escape') closeMenu(); }
+      function onOutside(e){ if(!menu.contains(e.target) && !btn.contains(e.target)) closeMenu(); }
+      btn.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        const isOpen = menu.classList.contains('scale-y-100');
+        isOpen ? closeMenu() : openMenu();
+      });
+    }
+
+  })();
   </script>
 </body>
 </html>
