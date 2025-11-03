@@ -83,31 +83,55 @@
     </div>
   </section>
 
-  <!-- ===== Sticky Controls ===== -->
-  <div class="sticky top-[64px] z-40 border-y bg-white/80 backdrop-blur">
-    <div class="max-w-6xl mx-auto px-4 py-3 grid gap-3 sm:grid-cols-3">
-      <!-- Categories -->
-      <div class="flex flex-wrap gap-2">
-        <button data-filter="All"    class="flt active rounded-pill border px-3 py-1.5 text-sm bg-ink text-white">All</button>
-        <button data-filter="Crocs"  class="flt rounded-pill border px-3 py-1.5 text-sm">Crocs</button>
-        <button data-filter="Clogs"  class="flt rounded-pill border px-3 py-1.5 text-sm">Clogs</button>
-        <button data-filter="Slides" class="flt rounded-pill border px-3 py-1.5 text-sm">Slides</button>
-      </div>
-      <!-- Search -->
-      <div>
-        <input id="q" type="search" placeholder="Search products…" class="w-full border rounded-pill px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600">
-      </div>
-      <!-- Sort -->
-      <div class="flex justify-end">
-        <select id="sort" class="border rounded-pill px-3 py-2 text-sm">
-          <option value="relevance">Sort: Relevance</option>
-          <option value="price_asc">Price: Low to High</option>
-          <option value="price_desc">Price: High to Low</option>
-          <option value="name_asc">Name: A–Z</option>
-        </select>
-      </div>
+  <!-- ===== Sticky Controls (with collapsible Filters) ===== -->
+<div class="sticky top-[64px] z-40 border-y bg-white/80 backdrop-blur">
+  <div class="max-w-6xl mx-auto px-4 py-3 grid gap-3 sm:grid-cols-3">
+    <!-- Categories (unchanged) -->
+    <div class="flex flex-wrap gap-2">
+      <button data-filter="All"    class="flt active rounded-pill border px-3 py-1.5 text-sm bg-ink text-white">All</button>
+      <button data-filter="Crocs"  class="flt rounded-pill border px-3 py-1.5 text-sm">Crocs</button>
+      <button data-filter="Clogs"  class="flt rounded-pill border px-3 py-1.5 text-sm">Clogs</button>
+      <button data-filter="Slides" class="flt rounded-pill border px-3 py-1.5 text-sm">Slides</button>
+    </div>
+
+    <!-- Toggle button (shows/hides filters panel on mobile) -->
+    <div class="sm:hidden">
+      <button id="filtersToggle" class="w-full rounded-pill border px-3 py-2 text-sm">
+        Show Filters
+      </button>
+    </div>
+
+    <!-- Quick search on desktop -->
+    <div class="hidden sm:block">
+      <input id="q" type="search" placeholder="Search products…"
+             class="w-full border rounded-pill px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600">
+    </div>
+
+    <!-- Sort (desktop) -->
+    <div class="hidden sm:flex justify-end">
+      <select id="sort" class="border rounded-pill px-3 py-2 text-sm">
+        <option value="relevance">Sort: Relevance</option>
+        <option value="price_asc">Price: Low to High</option>
+        <option value="price_desc">Price: High to Low</option>
+        <option value="name_asc">Name: A–Z</option>
+      </select>
     </div>
   </div>
+
+  <!-- Filters panel (mobile only) -->
+  <div id="filtersPanel" class="sm:hidden hidden border-t bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-3 grid gap-3">
+      <input id="q_m" type="search" placeholder="Search products…"
+             class="w-full border rounded-pill px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600">
+      <select id="sort_m" class="border rounded-pill px-3 py-2 text-sm">
+        <option value="relevance">Sort: Relevance</option>
+        <option value="price_asc">Price: Low to High</option>
+        <option value="price_desc">Price: High to Low</option>
+        <option value="name_asc">Name: A–Z</option>
+      </select>
+    </div>
+  </div>
+</div>
 
   <!-- ===== Grid ===== -->
   <main class="max-w-6xl mx-auto px-4 py-6">
@@ -153,6 +177,11 @@
     const loadMoreBtn = document.getElementById('loadMore');
     const fltBtns = Array.from(document.querySelectorAll('.flt'));
 
+    // --- Mobile filter + search elements
+const qInputM  = document.getElementById('q_m');
+const sortSelM = document.getElementById('sort_m');
+const filtersToggle = document.getElementById('filtersToggle');
+const filtersPanel  = document.getElementById('filtersPanel');
     let all = [];   // full dataset
     let view = [];  // filtered result
     let page = 1;
@@ -342,6 +371,37 @@ I'd like to order:
       history.replaceState({}, '', location.pathname + '?' + usp.toString() + location.hash);
       applyFilters();
     });
+
+    // ===== Filters Toggle Logic =====
+if (filtersToggle && filtersPanel) {
+  filtersToggle.addEventListener('click', () => {
+    const isHidden = filtersPanel.classList.contains('hidden');
+    filtersPanel.classList.toggle('hidden');
+    filtersToggle.textContent = isHidden ? 'Hide Filters' : 'Show Filters';
+  });
+}
+
+// Keep mobile & desktop inputs in sync
+if (qInputM) {
+  qInputM.addEventListener('input', () => {
+    qInput.value = qInputM.value;
+    applyFilters();
+  });
+}
+
+if (sortSelM) {
+  sortSelM.addEventListener('change', () => {
+    sortSel.value = sortSelM.value;
+    const usp = new URLSearchParams(location.search);
+    usp.set('sort', sortSel.value);
+    history.replaceState({}, '', location.pathname + '?' + usp.toString() + location.hash);
+    applyFilters();
+  });
+}
+
+// On load, mirror desktop values into mobile
+if (qInputM)  qInputM.value = qInput ? qInput.value : '';
+if (sortSelM) sortSelM.value = sortSel ? sortSel.value : 'relevance';
     loadMoreBtn.addEventListener('click', loadMore);
 
     // hash filter (deep-link) + sort from URL
