@@ -31,11 +31,7 @@
         }
       },
       safelist: [
-        /* visibility/animation toggles used in JS */
-        'hidden','block','flex','opacity-0','opacity-100',
-        'transform','translate-x-full','translate-x-0',
-        'scale-y-0','scale-y-100','origin-top',
-        'pointer-events-none','pointer-events-auto'
+        'transform','origin-top','scale-y-0','scale-y-100','opacity-0','opacity-100'
       ]
     }
   </script>
@@ -46,34 +42,38 @@
 </head>
 <body class="bg-white text-ink">
 
-  <!-- ===== Header (logo-left + menu + cart) ===== -->
+  <!-- ===== Header ===== -->
   <header class="sticky top-0 z-50 border-b shadow-[0_2px_10px_rgba(0,0,0,0.05)] bg-gradient-to-r from-[#cbd3b9] via-white/80 to-white backdrop-blur relative">
     <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
       <a href="index.html" class="flex items-center min-w-0">
         <img src="assets/logo-feet.png" alt="BRAQZ logo"
              class="h-12 sm:h-14 w-auto object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]">
       </a>
+
       <div class="flex items-center gap-2">
         <!-- Cart button -->
         <button id="cartBtn" aria-label="Open cart"
-                class="relative inline-flex items-center justify-center w-11 h-11 rounded-xl border text-[#111]/80 hover:bg-[#111] hover:text-white transition">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M7 4h-2v2h2l3.6 7.59-1.35 2.45A2 2 0 0 0 11 19h9v-2h-9l1.1-2h7.45a2 2 0 0 0 1.82-1.19l3.58-8.05-1.84-.82L19.55 12H12.1L9 6H4V4h3z"/>
+          class="relative inline-flex items-center justify-center w-11 h-11 rounded-xl border text-[#111]/80 hover:bg-[#111] hover:text-white transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.6 8H19M7 13l-2-8m0 0H3"/>
           </svg>
-          <span id="cartBadge" class="absolute -top-1.5 -right-1.5 text-[10px] leading-none bg-emerald-600 text-white px-1.5 py-1 rounded-full">0</span>
+          <span id="cartBadge" class="invisible absolute -top-1.5 -right-1.5 text-[10px] bg-emerald-600 text-white px-1.5 rounded-full">0</span>
         </button>
 
-        <!-- Mobile menu -->
+        <!-- Hamburger -->
         <button id="menuBtn" aria-label="Open menu"
-                class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-[#111]/80 hover:bg-[#111] hover:text-white transition">
+          class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-[#111]/80 hover:bg-[#111] hover:text-white transition">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
             <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
           </svg>
         </button>
       </div>
     </div>
+
+    <!-- Mobile menu -->
     <nav id="mobileMenu"
-         class="hidden absolute top-full inset-x-0 z-[60] bg-white border-b shadow-md transform origin-top scale-y-0 opacity-0 transition duration-200">
+      class="hidden absolute top-full inset-x-0 z-[60] bg-white border-b shadow-md transform origin-top scale-y-0 opacity-0 transition duration-200">
       <div class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
         <a class="py-2" href="shop.html">Shop</a>
         <div class="grid grid-cols-3 gap-2 text-xs text-black/70">
@@ -88,7 +88,7 @@
     </nav>
   </header>
 
-  <!-- ===== Page Title ===== -->
+  <!-- ===== Title Bar ===== -->
   <section class="max-w-6xl mx-auto px-4">
     <div class="flex items-end justify-between py-6">
       <div>
@@ -99,10 +99,10 @@
     </div>
   </section>
 
-  <!-- ===== Sticky Controls (with collapsible Filters) ===== -->
+  <!-- ===== Controls ===== -->
   <div class="sticky top-[64px] z-40 border-y bg-white/80 backdrop-blur">
     <div class="max-w-6xl mx-auto px-4 py-3 grid gap-3 sm:grid-cols-3">
-      <!-- Categories -->
+      <!-- Category chips -->
       <div class="flex flex-wrap gap-2">
         <button data-filter="All"    class="flt active rounded-pill border px-3 py-1.5 text-sm bg-ink text-white">All</button>
         <button data-filter="Crocs"  class="flt rounded-pill border px-3 py-1.5 text-sm">Crocs</button>
@@ -110,23 +110,22 @@
         <button data-filter="Slides" class="flt rounded-pill border px-3 py-1.5 text-sm">Slides</button>
       </div>
 
-      <!-- Toggle (mobile) -->
+      <!-- Filters toggle (mobile) -->
       <div class="sm:hidden">
-        <button id="filtersToggle" class="w-full rounded-pill border px-3 py-2 text-sm">Show Filters</button>
+        <button id="filtersToggle" class="w-full rounded-pill border px-3 py-2 text-sm">
+          Show Filters
+        </button>
       </div>
 
-      <!-- Toggle (desktop) -->
+      <!-- Search (desktop) -->
+      <div class="hidden sm:block">
+        <input id="q" type="search" placeholder="Search products…"
+          class="w-full border rounded-pill px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600">
+      </div>
+
+      <!-- Sort (desktop) -->
       <div class="hidden sm:flex justify-end">
-        <button id="filtersToggleDesktop" class="rounded-pill border px-3 py-2 text-sm">Filters</button>
-      </div>
-    </div>
-
-    <!-- Filters panel (mobile) -->
-    <div id="filtersPanel" class="sm:hidden hidden border-t bg-white">
-      <div class="max-w-6xl mx-auto px-4 py-3 grid gap-3">
-        <input id="q_m" type="search" placeholder="Search products…"
-               class="w-full border rounded-pill px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600">
-        <select id="sort_m" class="border rounded-pill px-3 py-2 text-sm">
+        <select id="sort" class="border rounded-pill px-3 py-2 text-sm">
           <option value="relevance">Sort: Relevance</option>
           <option value="price_asc">Price: Low to High</option>
           <option value="price_desc">Price: High to Low</option>
@@ -135,13 +134,12 @@
       </div>
     </div>
 
-    <!-- Filters panel (desktop) -->
-    <div id="filtersPanelDesktop"
-         class="hidden border-t bg-white transform origin-top scale-y-0 opacity-0 transition duration-200">
-      <div class="max-w-6xl mx-auto px-4 py-3 grid grid-cols-2 gap-3">
-        <input id="q" type="search" placeholder="Search products…"
-               class="w-full border rounded-pill px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600">
-        <select id="sort" class="border rounded-pill px-3 py-2 text-sm justify-self-end">
+    <!-- Filters panel (mobile) -->
+    <div id="filtersPanel" class="sm:hidden hidden border-t bg-white">
+      <div class="max-w-6xl mx-auto px-4 py-3 grid gap-3">
+        <input id="q_m" type="search" placeholder="Search products…"
+          class="w-full border rounded-pill px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600">
+        <select id="sort_m" class="border rounded-pill px-3 py-2 text-sm">
           <option value="relevance">Sort: Relevance</option>
           <option value="price_asc">Price: Low to High</option>
           <option value="price_desc">Price: High to Low</option>
@@ -178,172 +176,194 @@
   </a>
 
   <!-- ===== Cart Drawer ===== -->
-  <div id="cartOverlay" class="fixed inset-0 bg-black/40 opacity-0 pointer-events-none transition-opacity z-[70]"></div>
-  <aside id="cartDrawer" class="fixed top-0 right-0 h-full w-[92%] sm:w-[420px] bg-white shadow-2xl translate-x-full transition-transform z-[75] flex flex-col">
-    <div class="p-4 border-b flex items-center justify-between">
-      <div class="font-semibold">Your Cart</div>
-      <button id="cartClose" class="p-2 rounded hover:bg-slate-100" aria-label="Close cart">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M6.4 4.9L4.9 6.4 10.5 12l-5.6 5.6 1.5 1.5L12 13.5l5.6 5.6 1.5-1.5L13.5 12l5.6-5.6-1.5-1.5L12 10.5 6.4 4.9z"/></svg>
-      </button>
-    </div>
-    <div id="cartList" class="flex-1 overflow-y-auto divide-y"></div>
-    <div class="p-4 border-t space-y-3">
-      <div class="flex items-center justify-between text-sm">
-        <span>Subtotal</span><span id="cartSubtotal" class="font-semibold">₦0</span>
+  <aside id="cartDrawer" class="fixed inset-0 z-[70] hidden">
+    <!-- backdrop -->
+    <div id="cartBackdrop" class="absolute inset-0 bg-black/40 opacity-0 transition-opacity"></div>
+    <!-- panel -->
+    <div id="cartPanel"
+      class="absolute right-0 top-0 h-full w-[92%] sm:w-[420px] bg-white shadow-2xl translate-x-full transition-transform">
+      <div class="flex items-center justify-between border-b px-4 py-3">
+        <div class="font-semibold">Your Cart</div>
+        <button id="cartClose" class="p-2 rounded-lg hover:bg-slate-100" aria-label="Close cart">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
       </div>
-      <div class="text-xs text-ink/60">Delivery calculated on WhatsApp.</div>
-      <div class="flex gap-2">
-        <button id="emptyCart" class="w-1/3 border rounded-xl px-3 py-2 text-sm">Empty</button>
-        <a id="cartCheckout" target="_blank" class="w-2/3 inline-flex items-center justify-center gap-2 rounded-xl bg-ink text-white px-3 py-2 text-sm">
+      <div id="cartList" class="divide-y max-h-[60vh] overflow-auto"></div>
+      <div class="border-t p-4 space-y-3">
+        <div class="flex items-center justify-between text-sm">
+          <span>Subtotal</span>
+          <span id="cartSubtotal" class="font-semibold">₦0</span>
+        </div>
+        <a id="cartWa" href="#" target="_blank"
+           class="block w-full text-center rounded-xl bg-ink text-white px-4 py-3 text-sm font-semibold">
           Checkout on WhatsApp
         </a>
       </div>
     </div>
   </aside>
 
-  <!-- Shared site logic (optional) -->
+  <!-- Toast -->
+  <div id="toast"
+       class="fixed bottom-5 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-ink text-white text-sm shadow-[0_8px_24px_rgba(0,0,0,.12)]
+              opacity-0 pointer-events-none transition-opacity duration-200 z-[80]">
+    Added to cart
+  </div>
+
+  <!-- Shared site logic -->
   <script src="assets/app.js" defer></script>
 
-  <!-- Page logic -->
+  <!-- ===== Page logic ===== -->
   <script>
   (function(){
     const waNum = '2349136627644';
     const wa = (text) => 'https://wa.me/'+waNum+'?text='+encodeURIComponent(text);
-    const Naira = n => new Intl.NumberFormat('en-NG',{style:'currency',currency:'NGN',maximumFractionDigits:0}).format(n);
+    const NGN = n => new Intl.NumberFormat('en-NG',{style:'currency',currency:'NGN',maximumFractionDigits:0}).format(n);
 
-    // ===== Elements
+    // DOM
     const grid = document.getElementById('grid');
     const countEl = document.getElementById('count');
     const loadMoreBtn = document.getElementById('loadMore');
-    const fltBtns = Array.from(document.querySelectorAll('.flt'));
-    const qInput  = document.getElementById('q');
+    const qInput = document.getElementById('q');
     const sortSel = document.getElementById('sort');
-    const qInputM  = document.getElementById('q_m');
+    const fltBtns = Array.from(document.querySelectorAll('.flt'));
+    const qInputM = document.getElementById('q_m');
     const sortSelM = document.getElementById('sort_m');
     const filtersToggle = document.getElementById('filtersToggle');
-    const filtersPanel  = document.getElementById('filtersPanel');
-    const filtersToggleD = document.getElementById('filtersToggleDesktop');
-    const filtersPanelD  = document.getElementById('filtersPanelDesktop');
-
-    // Header/menu
+    const filtersPanel = document.getElementById('filtersPanel');
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
 
-    // Cart UI
+    // cart UI
     const cartBtn = document.getElementById('cartBtn');
     const cartBadge = document.getElementById('cartBadge');
     const cartDrawer = document.getElementById('cartDrawer');
-    const cartOverlay = document.getElementById('cartOverlay');
+    const cartPanel = document.getElementById('cartPanel');
+    const cartBackdrop = document.getElementById('cartBackdrop');
     const cartClose = document.getElementById('cartClose');
     const cartList = document.getElementById('cartList');
     const cartSubtotal = document.getElementById('cartSubtotal');
-    const cartCheckout = document.getElementById('cartCheckout');
-    const emptyCartBtn = document.getElementById('emptyCart');
+    const cartWa = document.getElementById('cartWa');
 
-    // Misc
+    // WA floater & year (fallback if app.js didn’t set)
     const floater=document.getElementById('floatWa'); if(floater) floater.href=wa('Hello BRAQZ!');
-    const y=document.getElementById('year'); if(y) y.textContent = new Date().getFullYear();
+    const year=document.getElementById('year'); if(year) year.textContent=new Date().getFullYear();
 
+    // ===== Toast
+    function showToast(message='Added to cart'){
+      const t = document.getElementById('toast');
+      if (!t) return;
+      t.textContent = message;
+      t.classList.remove('opacity-0');
+      t.classList.add('opacity-100');
+      setTimeout(() => {
+        t.classList.remove('opacity-100');
+        t.classList.add('opacity-0');
+      }, 1400);
+    }
+
+    // ===== state
     let all = [];
     let view = [];
     let page = 1;
     const PAGE_SIZE = 9;
 
-    // ===== CART STATE =====
-    const LS_KEY = 'braqz_cart';
-    let cart = loadCart();
+    // ===== Cart state (localStorage)
+    let cart = [];
+    try {
+      cart = JSON.parse(localStorage.getItem('BRAQZ_CART')||'[]');
+    } catch { cart = []; }
 
-    function loadCart(){
-      try { return JSON.parse(localStorage.getItem(LS_KEY) || '[]'); }
-      catch { return []; }
+    function saveCart(){
+      localStorage.setItem('BRAQZ_CART', JSON.stringify(cart));
     }
-    function saveCart(){ localStorage.setItem(LS_KEY, JSON.stringify(cart)); }
-    function cartCount(){ return cart.reduce((s,i)=>s+i.qty,0); }
-    function cartTotal(){ return cart.reduce((s,i)=>s+i.qty*i.price,0); }
-    function updateCartBadge(){ cartBadge.textContent = cartCount(); }
-
-    function addToCart(item){
-      // dedupe by id + color + size
-      const key = (i)=>[i.id,i.color||'-',i.size||'-'].join('|');
-      const k = key(item);
-      const found = cart.find(i => key(i)===k);
-      if(found){ found.qty += item.qty||1; }
-      else { cart.push({...item, qty: item.qty||1}); }
-      saveCart();
-      renderCart();
-      openCart();
-    }
-
-    function removeFromCart(idx){ cart.splice(idx,1); saveCart(); renderCart(); }
-    function changeQty(idx, delta){
-      cart[idx].qty = Math.max(1, cart[idx].qty + delta);
-      saveCart(); renderCart();
-    }
-    function emptyCart(){ cart = []; saveCart(); renderCart(); }
-
-    function renderCart(){
-      updateCartBadge();
-      cartList.innerHTML = cart.length ? '' : `
-        <div class="p-6 text-sm text-ink/60 text-center">Your cart is empty.</div>
-      `;
-      cart.forEach((it, idx)=>{
-        const row = document.createElement('div');
-        row.className = 'p-4 flex gap-3';
-        row.innerHTML = `
-          <img src="${it.image||'assets/cat-clogs.jpg'}" class="w-20 h-20 rounded-lg object-cover border" alt="">
-          <div class="flex-1 min-w-0">
-            <div class="font-medium truncate">${it.name}</div>
-            <div class="text-xs text-ink/60">${it.category||''}${it.color?` · ${it.color}`:''}${it.size?` · EU ${it.size}`:''}</div>
-            <div class="mt-1 text-sm font-semibold">${Naira(it.price)}</div>
-            <div class="mt-2 inline-flex items-center gap-2">
-              <button class="qtyMinus border rounded-md w-7 h-7">−</button>
-              <span class="text-sm">${it.qty}</span>
-              <button class="qtyPlus border rounded-md w-7 h-7">+</button>
-              <button class="ml-3 text-xs text-red-600 removeBtn">Remove</button>
-            </div>
-          </div>
-        `;
-        row.querySelector('.qtyMinus').addEventListener('click', ()=> changeQty(idx,-1));
-        row.querySelector('.qtyPlus').addEventListener('click', ()=> changeQty(idx,+1));
-        row.querySelector('.removeBtn').addEventListener('click', ()=> removeFromCart(idx));
-        cartList.appendChild(row);
-      });
-      cartSubtotal.textContent = Naira(cartTotal());
-      cartCheckout.href = wa(buildWaOrder());
-    }
-
-    function buildWaOrder(){
-      if(!cart.length) return 'Hello BRAQZ! I want to place an order.';
-      const lines = cart.map((it,i)=>
-        `${i+1}. ${it.name} ${it.size?`(EU ${it.size})`:''}${it.color?` - ${it.color}`:''} x${it.qty} — ${Naira(it.qty*it.price)}`
-      ).join('\n');
-      return `Hello BRAQZ!\n\nI'd like to order:\n${lines}\n\nSubtotal: ${Naira(cartTotal())}\n\nPlease share delivery options and final total.`;
+    function cartCount(){ return cart.reduce((s,i)=>s+(i.qty||1),0); }
+    function updateCartBadge(){
+      const n = cartCount();
+      cartBadge.textContent = n;
+      if (n <= 0) cartBadge.classList.add('invisible');
+      else cartBadge.classList.remove('invisible');
     }
 
     function openCart(){
-      cartOverlay.classList.remove('pointer-events-none');
-      cartOverlay.classList.add('pointer-events-auto','opacity-100');
-      cartDrawer.classList.remove('translate-x-full');
-      cartDrawer.classList.add('translate-x-0');
-      document.addEventListener('keydown', escToClose);
-      cartOverlay.addEventListener('click', closeCart, {once:true});
+      cartDrawer.classList.remove('hidden');
+      requestAnimationFrame(()=>{
+        cartBackdrop.classList.add('opacity-100');
+        cartPanel.classList.remove('translate-x-full');
+      });
     }
     function closeCart(){
-      cartOverlay.classList.remove('opacity-100','pointer-events-auto');
-      cartOverlay.classList.add('pointer-events-none');
-      cartDrawer.classList.remove('translate-x-0');
-      cartDrawer.classList.add('translate-x-full');
-      document.removeEventListener('keydown', escToClose);
+      cartBackdrop.classList.remove('opacity-100');
+      cartPanel.classList.add('translate-x-full');
+      setTimeout(()=>cartDrawer.classList.add('hidden'), 180);
     }
-    function escToClose(e){ if(e.key==='Escape') closeCart(); }
 
     cartBtn.addEventListener('click', openCart);
     cartClose.addEventListener('click', closeCart);
-    emptyCartBtn.addEventListener('click', emptyCart);
+    cartBackdrop.addEventListener('click', closeCart);
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeCart(); });
 
-    renderCart();
+    function renderCart(){
+      if (!cartList) return;
+      if (cart.length === 0){
+        cartList.innerHTML = `<div class="p-6 text-sm text-ink/60">Your cart is empty.</div>`;
+        cartSubtotal.textContent = NGN(0);
+        cartWa.href = wa('Hello BRAQZ! My cart is empty — I need help picking an item.');
+        return;
+      }
+      let html = '';
+      let subtotal = 0;
+      cart.forEach((it,idx)=>{
+        const safeImg = (it.image && it.image.trim()) ? it.image : 'assets/cat-clogs.jpg';
+        const line = (it.price||0) * (it.qty||1);
+        subtotal += line;
+        html += `
+          <div class="p-4 flex gap-3 items-center">
+            <img src="${safeImg}" alt="${it.name||'Product'}"
+                 class="w-16 h-16 object-cover rounded-lg border"
+                 loading="lazy" onerror="this.src='assets/cat-clogs.jpg'">
+            <div class="flex-1">
+              <div class="text-sm font-semibold">${it.name||'-'}</div>
+              <div class="text-xs text-ink/60">${it.category||''} ${it.color? '• '+it.color:''} ${it.size? '• EU '+it.size:''}</div>
+              <div class="mt-1 text-sm">${NGN(it.price||0)}</div>
+              <div class="mt-2 flex items-center gap-2 text-xs">
+                <button data-q="-1" data-i="${idx}" class="px-2 py-1 rounded border">-</button>
+                <span class="min-w-[1.5rem] text-center">${it.qty||1}</span>
+                <button data-q="+1" data-i="${idx}" class="px-2 py-1 rounded border">+</button>
+                <button data-remove="${idx}" class="ml-3 text-rose-600">Remove</button>
+              </div>
+            </div>
+          </div>`;
+      });
+      cartList.innerHTML = html;
+      cartSubtotal.textContent = NGN(subtotal);
 
-    // ===== Skeleton while loading
+      // Compose WA checkout text
+      const lines = cart.map(it => `• ${it.name} ${it.color?('('+it.color+')'):''} ${it.size?('EU '+it.size):''} x${it.qty||1} — ${NGN((it.price||0)*(it.qty||1))}`);
+      const msg = `Hello BRAQZ! I'd like to buy:\n\n${lines.join('\n')}\n\nSubtotal: ${NGN(subtotal)}\nDelivery: (please advise)\n\nThank you.`;
+      cartWa.href = wa(msg);
+
+      // qty handlers
+      cartList.querySelectorAll('[data-q]').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const i = +btn.dataset.i;
+          const delta = btn.dataset.q === '+1' ? 1 : -1;
+          cart[i].qty = Math.max(1, (cart[i].qty||1) + delta);
+          saveCart(); renderCart(); updateCartBadge();
+        });
+      });
+      // remove handlers
+      cartList.querySelectorAll('[data-remove]').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const i = +btn.dataset.remove;
+          cart.splice(i,1);
+          saveCart(); renderCart(); updateCartBadge();
+        });
+      });
+    }
+
+    // ===== Skeleton
     function showSkeleton(n=6){
       grid.innerHTML = Array.from({length:n}).map(()=>`
         <div class="animate-pulse bg-white border rounded-2xl overflow-hidden">
@@ -369,31 +389,34 @@
         article.setAttribute('itemscope','');
         article.setAttribute('itemtype','https://schema.org/Product');
 
+        const imgSrc = p.image || 'assets/cat-clogs.jpg';
+
         article.innerHTML = `
           <div class="relative">
             <div class="aspect-[4/3] bg-slate-100 overflow-hidden">
-              <img src="${p.image||'assets/cat-clogs.jpg'}"
+              <img src="${imgSrc}"
                    alt="${p.name||'Product image'}"
                    class="w-full h-full object-cover" loading="lazy"
                    onerror="this.src='assets/cat-clogs.jpg'">
             </div>
             ${p.badge?`<span class="absolute top-3 left-3 rounded-full bg-ink text-white text-xs px-2 py-1">${p.badge}</span>`:''}
           </div>
+
           <div class="p-4 flex-1 flex flex-col gap-3">
             <div>
               <h3 class="font-semibold leading-tight" itemprop="name">${p.name}</h3>
               <div class="text-sm text-ink/60">${p.category||''}</div>
               <meta itemprop="category" content="${p.category||''}" />
-              <link itemprop="image" href="${p.image||''}" />
+              <link itemprop="image" href="${imgSrc}" />
             </div>
 
             <div class="text-lg font-semibold flex items-center gap-2" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
               <meta itemprop="priceCurrency" content="NGN" />
               <meta itemprop="availability" content="https://schema.org/InStock" />
               <span itemprop="price">${(p.price||0)}</span>
-              <span>${Naira(p.price||0)}</span>
+              <span>${NGN(p.price||0)}</span>
               ${p.compareAt && p.compareAt > (p.price||0)
-                ? `<span class="text-ink/50 line-through text-sm">${Naira(p.compareAt)}</span>
+                ? `<span class="text-ink/50 line-through text-sm">${NGN(p.compareAt)}</span>
                    <span class="ml-1 text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-pill">Sale</span>`
                 : ''
               }
@@ -401,7 +424,7 @@
 
             <div class="flex items-center gap-2 text-sm">
               ${colors.length
-                ? `<div class="flex items-center gap-1 colorRow">
+                ? `<div class="flex items-center gap-1">
                      ${colors.map((c,i)=>`<button type="button" class="w-5 h-5 rounded-full border ${i===0?'ring-2 ring-emerald-600':''}" title="${c}" style="background:${c.toLowerCase()};" data-color="${c}"></button>`).join('')}
                    </div>`
                 : ''
@@ -414,13 +437,13 @@
               }
             </div>
 
-            <div class="grid grid-cols-2 gap-2">
-              <a class="orderBtn inline-flex items-center justify-center gap-2 rounded-xl border px-3 py-2 text-sm" target="_blank">
-                WhatsApp
-              </a>
-              <button class="addBtn inline-flex items-center justify-center gap-2 rounded-xl bg-ink text-white px-3 py-2 text-sm">
+            <div class="mt-1 grid grid-cols-2 gap-2">
+              <button class="addBtn inline-flex items-center justify-center gap-2 rounded-xl border px-3 py-2 text-sm">
                 Add to Cart
               </button>
+              <a class="orderBtn inline-flex items-center justify-center gap-2 rounded-xl bg-ink text-white px-3 py-2 text-sm" target="_blank">
+                WhatsApp
+              </a>
             </div>
           </div>
         `;
@@ -428,64 +451,58 @@
 
         const colorBtns = article.querySelectorAll('[data-color]');
         const sizeSel   = article.querySelector('.sizeSel');
-        const btnWA     = article.querySelector('.orderBtn');
-        const btnAdd    = article.querySelector('.addBtn');
+        const orderBtn  = article.querySelector('.orderBtn');
+        const addBtn    = article.querySelector('.addBtn');
 
         let chosenColor = colors[0] || null;
-        if (colorBtns.length){
-          colorBtns.forEach(b=>{
-            b.addEventListener('click', ()=>{
-              colorBtns.forEach(x=>x.classList.remove('ring-2','ring-emerald-600'));
-              b.classList.add('ring-2','ring-emerald-600');
-              chosenColor = b.dataset.color;
-              btnWA.href = wa(orderText());
-            });
-          });
-        }
+        const currentSize = () => sizeSel ? sizeSel.value.replace('EU ','') : null;
 
-        function selectedSize(){
-          return sizeSel ? sizeSel.value.replace('EU ','') : null;
-        }
-
-        function orderText(){
-          const s = selectedSize() || '—';
-          const c = chosenColor || '—';
+        const orderText = () => {
           return `Hello BRAQZ!
 
 I'd like to order:
 • Product: ${p.name}
 • Category: ${p.category||'-'}
-• Color: ${c}
-• Size: EU ${s}
-• Price: ${Naira(p.price||0)}
+• Color: ${chosenColor || '—'}
+• Size: ${currentSize() ? 'EU '+currentSize() : '—'}
+• Price: ${NGN(p.price||0)}
 • ID: ${p.id||'-'}`;
-        }
+        };
 
-        btnWA.href = wa(orderText());
-        if (sizeSel) sizeSel.addEventListener('change', ()=> btnWA.href = wa(orderText()));
+        orderBtn.href = wa(orderText());
 
-        btnAdd.addEventListener('click', ()=>{
-          const item = {
-            id: p.id || p.name,
+        colorBtns.forEach(b=>{
+          b.addEventListener('click', ()=>{
+            colorBtns.forEach(x=>x.classList.remove('ring-2','ring-emerald-600'));
+            b.classList.add('ring-2','ring-emerald-600');
+            chosenColor = b.dataset.color;
+            orderBtn.href = wa(orderText());
+          });
+        });
+        if (sizeSel) sizeSel.addEventListener('change', ()=> orderBtn.href = wa(orderText()));
+
+        // Add to Cart (does NOT open cart)
+        addBtn.addEventListener('click', ()=>{
+          addToCart({
+            id: p.id,
             name: p.name,
             category: p.category || '',
+            color: chosenColor,
+            size: currentSize(),
             price: p.price || 0,
-            image: p.image || 'assets/cat-clogs.jpg',
-            color: chosenColor || (colors[0] || ''),
-            size: selectedSize() || (sizes[0] || ''),
-            qty: 1
-          };
-          addToCart(item);
+            qty: 1,
+            image: imgSrc // important for cart thumbnails
+          });
         });
       });
 
       countEl.textContent = `${view.length} item${view.length!==1?'s':''}`;
     }
 
-    // ===== Filters/sort/pagination
+    // ===== Filtering/sort/pagination
     function applyFilters(){
       const active = (document.querySelector('.flt.active')||{}).dataset?.filter || 'All';
-      const q = ((qInput && qInput.value) || (qInputM && qInputM.value) || '').trim().toLowerCase();
+      const q = (qInput?.value||'').trim().toLowerCase();
 
       view = all.filter(p=>{
         const matchCat = active==='All' ? true : (p.category===active);
@@ -494,9 +511,9 @@ I'd like to order:
         return matchCat && matchQ;
       });
 
-      const mode = (sortSel && sortSel.value) || (sortSelM && sortSelM.value) || 'relevance';
+      const mode = (sortSel?.value)||'relevance';
       if(mode==='price_asc')   view.sort((a,b)=>(a.price||0)-(b.price||0));
-      if(mode==='price_desc')  view.sort((a,b)=>(b.price||0)-(a.price||0));
+      if(mode==='price_desc')  view.sort((a,b) => (b.price||0)-(a.price||0));
       if(mode==='name_asc')    view.sort((a,b)=> (a.name||'').localeCompare(b.name||''));
 
       page = 1;
@@ -513,11 +530,9 @@ I'd like to order:
           </div>`;
         document.getElementById('clearFilters').addEventListener('click', ()=>{
           if(qInput) qInput.value = '';
-          if(qInputM) qInputM.value = '';
           fltBtns.forEach(x=>x.classList.remove('active','bg-ink','text-white'));
           document.querySelector('[data-filter="All"]').classList.add('active','bg-ink','text-white');
-          if(sortSel) sortSel.value = 'relevance';
-          if(sortSelM) sortSelM.value = 'relevance';
+          if (sortSel) sortSel.value = 'relevance';
           applyFilters();
         });
       }
@@ -530,8 +545,8 @@ I'd like to order:
       renderCards(chunk, true);
       if(end>=view.length) loadMoreBtn.classList.add('hidden');
     }
+    loadMoreBtn.addEventListener('click', loadMore);
 
-    // Category buttons
     fltBtns.forEach(b=>{
       b.addEventListener('click', ()=>{
         fltBtns.forEach(x=>x.classList.remove('active','bg-ink','text-white'));
@@ -541,45 +556,31 @@ I'd like to order:
       });
     });
 
-    // Filters toggles
-    if (filtersToggle && filtersPanel) {
-      filtersToggle.addEventListener('click', () => {
-        const hidden = filtersPanel.classList.contains('hidden');
-        filtersPanel.classList.toggle('hidden');
-        filtersToggle.textContent = hidden ? 'Hide Filters' : 'Show Filters';
-      });
-    }
-    if (filtersToggleD && filtersPanelD) {
-      filtersToggleD.addEventListener('click', () => {
-        const open = filtersPanelD.classList.contains('scale-y-100');
-        if (open){
-          filtersPanelD.classList.remove('scale-y-100','opacity-100');
-          filtersPanelD.classList.add('scale-y-0','opacity-0');
-          setTimeout(()=>filtersPanelD.classList.add('hidden'),200);
-        }else{
-          filtersPanelD.classList.remove('hidden','scale-y-0','opacity-0');
-          filtersPanelD.classList.add('scale-y-100','opacity-100');
-        }
-      });
-    }
-
-    // Sync mobile/desktop inputs
-    if (qInputM)  qInputM.addEventListener('input', ()=>{ if(qInput){ qInput.value=qInputM.value; } applyFilters(); });
-    if (qInput)   qInput.addEventListener('input', ()=>{ if(qInputM){ qInputM.value=qInput.value; } applyFilters(); });
-
-    function onSortChange(val){
+    if (qInput) qInput.addEventListener('input', applyFilters);
+    if (sortSel) sortSel.addEventListener('change', ()=>{
       const usp = new URLSearchParams(location.search);
-      usp.set('sort', val);
+      usp.set('sort', sortSel.value);
       history.replaceState({}, '', location.pathname + '?' + usp.toString() + location.hash);
       applyFilters();
+    });
+
+    // filters panel mobile
+    if (filtersToggle && filtersPanel) {
+      filtersToggle.addEventListener('click', () => {
+        const isHidden = filtersPanel.classList.contains('hidden');
+        filtersPanel.classList.toggle('hidden');
+        filtersToggle.textContent = isHidden ? 'Hide Filters' : 'Show Filters';
+      });
     }
-    if (sortSel)  sortSel.addEventListener('change', ()=> onSortChange(sortSel.value));
-    if (sortSelM) sortSelM.addEventListener('change', ()=> onSortChange(sortSelM.value));
+    if (qInputM) qInputM.addEventListener('input', ()=>{ if(qInput){ qInput.value=qInputM.value; applyFilters(); }});
+    if (sortSelM) sortSelM.addEventListener('change', ()=>{
+      if (sortSel){ sortSel.value = sortSelM.value; }
+      const usp = new URLSearchParams(location.search);
+      usp.set('sort', sortSelM.value);
+      history.replaceState({}, '', location.pathname + '?' + usp.toString() + location.hash);
+      applyFilters();
+    });
 
-    // Load more
-    loadMoreBtn.addEventListener('click', loadMore);
-
-    // Deep-link on hash + sort from URL
     function applyHashFilter(){
       const h = (location.hash||'').replace('#','');
       if(!h) return;
@@ -592,7 +593,9 @@ I'd like to order:
     (function initSortFromURL(){
       const usp = new URLSearchParams(location.search);
       const s = usp.get('sort');
-      if(s){ if(sortSel) sortSel.value = s; if(sortSelM) sortSelM.value = s; }
+      if(s && sortSel) sortSel.value = s;
+      if (qInputM && qInput) qInputM.value = qInput.value;
+      if (sortSelM && sortSel) sortSelM.value = sortSel.value;
     })();
     window.addEventListener('hashchange', ()=>{ applyHashFilter(); applyFilters(); });
 
@@ -619,7 +622,20 @@ I'd like to order:
     }
     loadData();
 
-    // Mobile menu animation
+    // ===== Cart add (no auto-open) =====
+    function addToCart(item){
+      const key = (i)=>[i.id, i.color||'-', i.size||'-'].join('|');
+      const k = key(item);
+      const found = cart.find(i => key(i) === k);
+
+      if (found) found.qty += item.qty || 1;
+      else cart.push({...item, qty: item.qty || 1});
+
+      saveCart(); renderCart(); updateCartBadge();
+      showToast('Added to cart');
+    }
+
+    // ===== Menu animation (works even if app.js fails) =====
     if (menuBtn && mobileMenu) {
       function openMenu(){
         mobileMenu.classList.remove('hidden','scale-y-0','opacity-0');
@@ -644,6 +660,10 @@ I'd like to order:
         isOpen ? closeMenu() : openMenu();
       });
     }
+
+    // init cart UI
+    updateCartBadge();
+    renderCart();
   })();
   </script>
 </body>
