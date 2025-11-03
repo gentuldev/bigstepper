@@ -5,10 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BRAQZ! — Crocs, Clogs & Slides</title>
   <link rel="icon" href="assets/logo.png" />
+
+  <!-- SEO & OG -->
+  <meta name="description" content="BRAQZ! — Crocs, clogs & slides built for everyday comfort across Nigeria. Lightweight, water-friendly. Stay Cool!">
+  <meta property="og:title" content="BRAQZ! — Crocs, Clogs & Slides">
+  <meta property="og:description" content="Lightweight, water-friendly footwear. Stay Cool!">
+  <meta property="og:image" content="https://gentuldev.github.io/bigstepper/assets/logo.png">
+  <meta property="og:type" content="website">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -23,6 +32,7 @@
       }
     }
   </script>
+
   <style>
     body{font-family:Poppins,system-ui,sans-serif}
     .brand{font-family:'Baloo 2',system-ui,sans-serif;letter-spacing:.2px}
@@ -32,49 +42,51 @@
   </style>
 </head>
 <body class="bg-white text-ink">
+
   <!-- ===== Header ===== -->
-<header class="sticky top-0 z-50 border-b bg-gradient-to-r from-[#cbd3b9] via-white/70 to-white backdrop-blur">
-  <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
-    <!-- Brand: feet logo + BRAQZ! (Baloo 2) -->
-    <a href="index.html" class="flex items-center gap-3 min-w-0">
-  <div class="flex flex-col items-center">
-  <img src="assets/logo-feet.png" alt="BRAQZ logo"
-     class="h-9 sm:h-11 w-auto object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
-    <span class="text-[0.95rem] sm:text-[1.05rem] font-bold text-[#3a4a2b] leading-none"
-          style="font-family:'Baloo 2', cursive; letter-spacing:0.5px;">
-    </span>
-  </div>
-</a>
+  <header class="sticky top-0 z-50 border-b bg-gradient-to-r from-[#cbd3b9] via-white/70 to-white backdrop-blur relative">
+    <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
 
-    <!-- Hamburger -->
-    <button id="menuBtn" aria-label="Open menu"
-            class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-ink/80 hover:bg-ink hover:text-white transition">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
-      </svg>
-    </button>
-  </div>
+      <!-- Left spacer (for symmetry) -->
+      <div class="w-11 h-11"></div>
 
-  <!-- Slide-down mobile menu -->
-  <nav id="mobileMenu"
-       class="hidden absolute top-full inset-x-0 z-[60] bg-white border-b shadow-md">
-    <div class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
-      <a class="py-2" href="shop.html">Shop</a>
-      <div class="grid grid-cols-3 gap-2 text-xs text-ink/70">
-        <a href="shop.html#Crocs"  class="rounded-full border px-3 py-2 text-center">Crocs</a>
-        <a href="shop.html#Clogs"  class="rounded-full border px-3 py-2 text-center">Clogs</a>
-        <a href="shop.html#Slides" class="rounded-full border px-3 py-2 text-center">Slides</a>
-      </div>
-      <a class="py-2" href="about.html">About</a>
-      <a class="py-2" href="faq.html">FAQ</a>
-      <a class="py-2" href="contact.html">Contact</a>
+      <!-- Centered Brand -->
+      <a href="index.html" class="flex flex-col items-center min-w-0">
+        <img src="assets/logo-feet.png" alt="BRAQZ logo"
+             class="h-9 sm:h-11 w-auto object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
+        <span class="text-[0.95rem] sm:text-[1.05rem] font-bold text-[#3a4a2b] leading-none"
+              style="font-family:'Baloo 2', cursive; letter-spacing:0.5px;">BRAQZ!</span>
+      </a>
+
+      <!-- Hamburger -->
+      <button id="menuBtn" aria-label="Open menu"
+              class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-ink/80 hover:bg-ink hover:text-white transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+        </svg>
+      </button>
     </div>
-  </nav>
-</header>
 
-  <!-- ===== Hero (editorial minimal) ===== -->
+    <!-- Mobile menu -->
+    <nav id="mobileMenu"
+         class="hidden absolute top-full inset-x-0 z-[60] bg-white border-b shadow-md">
+      <div class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
+        <a class="py-2" href="shop.html">Shop</a>
+        <div class="grid grid-cols-3 gap-2 text-xs text-ink/70">
+          <a href="shop.html#Crocs"  class="rounded-full border px-3 py-2 text-center">Crocs</a>
+          <a href="shop.html#Clogs"  class="rounded-full border px-3 py-2 text-center">Clogs</a>
+          <a href="shop.html#Slides" class="rounded-full border px-3 py-2 text-center">Slides</a>
+        </div>
+        <a class="py-2" href="about.html">About</a>
+        <a class="py-2" href="faq.html">FAQ</a>
+        <a class="py-2" href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== Hero ===== -->
   <section class="max-w-6xl mx-auto px-4">
-    <div class="grid md:grid-cols-2 gap-8 items-center pt-10 pb-8">
+    <div class="grid md:grid-cols-2 gap-8 items-center pt-8 pb-6">
       <div>
         <h1 class="brand text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight">
           Comfort. Everyday. Everywhere.
@@ -94,13 +106,15 @@
         </div>
         <div class="mt-3 text-xs text-ink/60">Free delivery in-town on orders ₦100,000+</div>
       </div>
-   <div class="mt-8 rounded-2xl overflow-hidden shadow-soft border border-olive/10">
-  <img src="assets/logo.png" alt="BRAQZ Stay Cool logo"
-       class="w-full h-auto object-cover block" />     
+
+      <div class="mt-6 md:mt-4 rounded-2xl overflow-hidden shadow-soft border border-olive/10">
+        <img src="assets/logo.png" alt="BRAQZ Stay Cool logo"
+             class="w-full h-auto object-cover block" loading="eager" fetchpriority="high" />
+      </div>
     </div>
   </section>
 
-  <!-- ===== Category Grid (no overlays, just clean cards) ===== -->
+  <!-- ===== Category Grid ===== -->
   <section class="max-w-6xl mx-auto px-4">
     <div class="flex items-center justify-between mb-4">
       <h2 class="brand text-2xl font-extrabold">Shop by Category</h2>
@@ -110,7 +124,7 @@
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       <!-- CLOGS -->
       <a href="shop.html#Clogs" class="block rounded-2xl border hover:shadow-soft transition bg-white">
-        <img src="assets/cat-clogs.jpg" alt="Clogs" class="h-64 w-full object-cover rounded-t-2xl">
+        <img src="assets/cat-clogs.jpg" alt="Clogs" class="h-64 w-full object-cover rounded-t-2xl" loading="lazy">
         <div class="p-4">
           <div class="flex items-center justify-between">
             <div>
@@ -127,7 +141,7 @@
 
       <!-- CROCS -->
       <a href="shop.html#Crocs" class="block rounded-2xl border hover:shadow-soft transition bg-white">
-        <img src="assets/cat-crocs.jpg" alt="Crocs" class="h-64 w-full object-cover rounded-t-2xl">
+        <img src="assets/cat-crocs.jpg" alt="Crocs" class="h-64 w-full object-cover rounded-t-2xl" loading="lazy">
         <div class="p-4">
           <div class="flex items-center justify-between">
             <div>
@@ -144,7 +158,7 @@
 
       <!-- SLIDES -->
       <a href="shop.html#Slides" class="block rounded-2xl border hover:shadow-soft transition bg-white">
-        <img src="assets/cat-slides.jpg" alt="Slides" class="h-64 w-full object-cover rounded-t-2xl">
+        <img src="assets/cat-slides.jpg" alt="Slides" class="h-64 w-full object-cover rounded-t-2xl" loading="lazy">
         <div class="p-4">
           <div class="flex items-center justify-between">
             <div>
@@ -161,7 +175,7 @@
     </div>
   </section>
 
-  <!-- ===== Simple Strip (badges, very light) ===== -->
+  <!-- ===== Simple Strip ===== -->
   <section class="max-w-6xl mx-auto px-4 my-12">
     <div class="grid sm:grid-cols-3 gap-3 text-sm">
       <div class="rounded-xl border p-4 bg-sage">Nationwide Delivery</div>
@@ -185,28 +199,35 @@
   </a>
 
   <!-- Shared JS -->
-  <script src="assets/app.js"></script>
+  <script src="assets/app.js" defer></script>
 
-  <!-- Minimal inline fallback if app.js fails -->
+  <!-- Enhanced fallback -->
   <script>
     (function(){
       if (window.BRAQZ_APP_LOADED) return;
-      // WA links + fold
-      function wa(h){ return 'https://wa.me/2349136627644?text=' + encodeURIComponent(h||'Hello BRAQZ!'); }
-      var floater=document.getElementById('floatWa'); if(floater) floater.href=wa();
-      var hw=document.getElementById('heroWa'); if(hw) hw.href=wa('Hello BRAQZ! I want to order.');
-      var lastY=window.scrollY;
-      window.addEventListener('scroll',function(){
-        var y=window.scrollY;
-        if(y>lastY+5){ if(floater){floater.style.transform='translateY(96px) scale(.98)'; floater.style.opacity='0';} }
-        else if(y<lastY-5){ if(floater){floater.style.transform=''; floater.style.opacity='';} }
+      // WhatsApp
+      const wa=(h)=>'https://wa.me/2349136627644?text='+encodeURIComponent(h||'Hello BRAQZ!');
+      const floater=document.getElementById('floatWa'); if(floater) floater.href=wa();
+      const hw=document.getElementById('heroWa'); if(hw) hw.href=wa('Hello BRAQZ! I want to order.');
+      // Scroll hide
+      let lastY=window.scrollY;
+      window.addEventListener('scroll',()=>{
+        const y=window.scrollY;
+        if(y>lastY+5){ floater.style.transform='translateY(96px) scale(.98)'; floater.style.opacity='0'; }
+        else if(y<lastY-5){ floater.style.transform=''; floater.style.opacity=''; }
         lastY=y;
       },{passive:true});
-      // menu
-      var b=document.getElementById('menuBtn'), m=document.getElementById('mobileMenu');
-      if(b&&m){ b.addEventListener('click',function(){ m.classList.toggle('hidden'); }); }
-      // year
-      var y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+      // Menu toggle (accessible)
+      const btn=document.getElementById('menuBtn'),menu=document.getElementById('mobileMenu');
+      if(btn&&menu){
+        function openM(){menu.classList.remove('hidden');btn.setAttribute('aria-expanded','true');}
+        function closeM(){menu.classList.add('hidden');btn.setAttribute('aria-expanded','false');}
+        btn.addEventListener('click',e=>{e.stopPropagation();menu.classList.contains('hidden')?openM():closeM();});
+        document.addEventListener('click',e=>{if(!menu.contains(e.target)&&!btn.contains(e.target))closeM();});
+        document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
+      }
+      // Year
+      const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
     })();
   </script>
 </body>
