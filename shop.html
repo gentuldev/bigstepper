@@ -30,9 +30,7 @@
           boxShadow:{ soft:'0 8px 24px rgba(0,0,0,.06)' }
         }
       },
-      safelist: [
-        'transform','origin-top','scale-y-0','scale-y-100','opacity-0','opacity-100'
-      ]
+      safelist: ['transform','origin-top','scale-y-0','scale-y-100','opacity-0','opacity-100']
     }
   </script>
   <style>
@@ -177,9 +175,7 @@
 
   <!-- ===== Cart Drawer ===== -->
   <aside id="cartDrawer" class="fixed inset-0 z-[70] hidden">
-    <!-- backdrop -->
     <div id="cartBackdrop" class="absolute inset-0 bg-black/40 opacity-0 transition-opacity"></div>
-    <!-- panel -->
     <div id="cartPanel"
       class="absolute right-0 top-0 h-full w-[92%] sm:w-[420px] bg-white shadow-2xl translate-x-full transition-transform">
       <div class="flex items-center justify-between border-b px-4 py-3">
@@ -217,7 +213,8 @@
   <!-- ===== Page logic ===== -->
   <script>
   (function(){
-    const waNum = '2349136627644';
+    // NEW WhatsApp number
+    const waNum = '2348119482042';
     const wa = (text) => 'https://wa.me/'+waNum+'?text='+encodeURIComponent(text);
     const NGN = n => new Intl.NumberFormat('en-NG',{style:'currency',currency:'NGN',maximumFractionDigits:0}).format(n);
 
@@ -246,7 +243,7 @@
     const cartSubtotal = document.getElementById('cartSubtotal');
     const cartWa = document.getElementById('cartWa');
 
-    // WA floater & year (fallback if app.js didn’t set)
+    // WA floater & year
     const floater=document.getElementById('floatWa'); if(floater) floater.href=wa('Hello BRAQZ!');
     const year=document.getElementById('year'); if(year) year.textContent=new Date().getFullYear();
 
@@ -260,7 +257,18 @@
       setTimeout(() => {
         t.classList.remove('opacity-100');
         t.classList.add('opacity-0');
-      }, 1400);
+      }, 1200);
+    }
+
+    // ===== helpers
+    function imgFor(p){
+      if (p.image && p.image.trim()) return p.image;
+      const map = {
+        'Crocs':  'assets/cat-crocs.jpg',
+        'Clogs':  'assets/cat-clogs.jpg',
+        'Slides': 'assets/cat-slides.jpg'
+      };
+      return map[p.category] || 'assets/cat-clogs.jpg';
     }
 
     // ===== state
@@ -271,13 +279,10 @@
 
     // ===== Cart state (localStorage)
     let cart = [];
-    try {
-      cart = JSON.parse(localStorage.getItem('BRAQZ_CART')||'[]');
-    } catch { cart = []; }
+    try { cart = JSON.parse(localStorage.getItem('BRAQZ_CART')||'[]'); }
+    catch { cart = []; }
 
-    function saveCart(){
-      localStorage.setItem('BRAQZ_CART', JSON.stringify(cart));
-    }
+    function saveCart(){ localStorage.setItem('BRAQZ_CART', JSON.stringify(cart)); }
     function cartCount(){ return cart.reduce((s,i)=>s+(i.qty||1),0); }
     function updateCartBadge(){
       const n = cartCount();
@@ -315,14 +320,14 @@
       let html = '';
       let subtotal = 0;
       cart.forEach((it,idx)=>{
-        const safeImg = (it.image && it.image.trim()) ? it.image : 'assets/cat-clogs.jpg';
+        const safeImg = (it.image && it.image.trim()) ? it.image : imgFor({category: it.category});
         const line = (it.price||0) * (it.qty||1);
         subtotal += line;
         html += `
           <div class="p-4 flex gap-3 items-center">
             <img src="${safeImg}" alt="${it.name||'Product'}"
                  class="w-16 h-16 object-cover rounded-lg border"
-                 loading="lazy" onerror="this.src='assets/cat-clogs.jpg'">
+                 loading="lazy" onerror="this.src='${imgFor({category: it.category})}'">
             <div class="flex-1">
               <div class="text-sm font-semibold">${it.name||'-'}</div>
               <div class="text-xs text-ink/60">${it.category||''} ${it.color? '• '+it.color:''} ${it.size? '• EU '+it.size:''}</div>
@@ -339,12 +344,10 @@
       cartList.innerHTML = html;
       cartSubtotal.textContent = NGN(subtotal);
 
-      // Compose WA checkout text
       const lines = cart.map(it => `• ${it.name} ${it.color?('('+it.color+')'):''} ${it.size?('EU '+it.size):''} x${it.qty||1} — ${NGN((it.price||0)*(it.qty||1))}`);
       const msg = `Hello BRAQZ! I'd like to buy:\n\n${lines.join('\n')}\n\nSubtotal: ${NGN(subtotal)}\nDelivery: (please advise)\n\nThank you.`;
       cartWa.href = wa(msg);
 
-      // qty handlers
       cartList.querySelectorAll('[data-q]').forEach(btn=>{
         btn.addEventListener('click', ()=>{
           const i = +btn.dataset.i;
@@ -353,7 +356,6 @@
           saveCart(); renderCart(); updateCartBadge();
         });
       });
-      // remove handlers
       cartList.querySelectorAll('[data-remove]').forEach(btn=>{
         btn.addEventListener('click', ()=>{
           const i = +btn.dataset.remove;
@@ -383,13 +385,12 @@
       list.forEach(p=>{
         const colors = Array.isArray(p.colors) ? p.colors : [];
         const sizes  = Array.isArray(p.sizes) ? p.sizes  : [];
+        const imgSrc = imgFor(p);
 
         const article = document.createElement('article');
         article.className = 'bg-white border rounded-2xl overflow-hidden shadow-soft flex flex-col';
         article.setAttribute('itemscope','');
         article.setAttribute('itemtype','https://schema.org/Product');
-
-        const imgSrc = p.image || 'assets/cat-clogs.jpg';
 
         article.innerHTML = `
           <div class="relative">
@@ -397,7 +398,7 @@
               <img src="${imgSrc}"
                    alt="${p.name||'Product image'}"
                    class="w-full h-full object-cover" loading="lazy"
-                   onerror="this.src='assets/cat-clogs.jpg'">
+                   onerror="this.src='${imgFor({category:p.category})}'">
             </div>
             ${p.badge?`<span class="absolute top-3 left-3 rounded-full bg-ink text-white text-xs px-2 py-1">${p.badge}</span>`:''}
           </div>
@@ -413,7 +414,8 @@
             <div class="text-lg font-semibold flex items-center gap-2" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
               <meta itemprop="priceCurrency" content="NGN" />
               <meta itemprop="availability" content="https://schema.org/InStock" />
-              <span itemprop="price">${(p.price||0)}</span>
+              <!-- Keep price for SEO only, do NOT show raw number -->
+              <meta itemprop="price" content="${(p.price||0)}" />
               <span>${NGN(p.price||0)}</span>
               ${p.compareAt && p.compareAt > (p.price||0)
                 ? `<span class="text-ink/50 line-through text-sm">${NGN(p.compareAt)}</span>
@@ -481,8 +483,12 @@ I'd like to order:
         });
         if (sizeSel) sizeSel.addEventListener('change', ()=> orderBtn.href = wa(orderText()));
 
-        // Add to Cart (does NOT open cart)
+        // Add to Cart (debounced for ~1s)
         addBtn.addEventListener('click', ()=>{
+          if (addBtn.dataset.lock === '1') return;          // prevent spam taps
+          addBtn.dataset.lock = '1';
+          addBtn.classList.add('opacity-60','pointer-events-none');
+
           addToCart({
             id: p.id,
             name: p.name,
@@ -491,8 +497,13 @@ I'd like to order:
             size: currentSize(),
             price: p.price || 0,
             qty: 1,
-            image: imgSrc // important for cart thumbnails
+            image: imgSrc
           });
+
+          setTimeout(()=>{
+            addBtn.dataset.lock = '0';
+            addBtn.classList.remove('opacity-60','pointer-events-none');
+          }, 1000);
         });
       });
 
@@ -635,7 +646,7 @@ I'd like to order:
       showToast('Added to cart');
     }
 
-    // ===== Menu animation (works even if app.js fails) =====
+    // ===== Menu animation =====
     if (menuBtn && mobileMenu) {
       function openMenu(){
         mobileMenu.classList.remove('hidden','scale-y-0','opacity-0');
