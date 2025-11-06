@@ -6,67 +6,66 @@
   <title>About — BRAQZ!</title>
   <link rel="icon" href="assets/logo.png" />
 
+  <!-- SEO -->
+  <meta name="description" content="About BRAQZ — Nigerian comfort-first footwear brand. Crocs, clogs & slides for everyday wear. Stay Cool!">
+  <meta property="og:title" content="About — BRAQZ!">
+  <meta property="og:description" content="Comfort-first footwear for everyday life. Lightweight, water-friendly. Stay Cool!">
+  <meta property="og:image" content="https://gentuldev.github.io/bigstepper/assets/logo.png">
+  <meta property="og:type" content="website">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      theme: {
-        fontFamily: { sans: ['Poppins','ui-sans-serif','system-ui'] },
-        extend: {
-          colors: { olive:'#3a4a2b', sage:'#c9d1b4', neon:'#8cff6a' },
-          borderRadius: { pill:'9999px' },
-          boxShadow: { soft:'0 10px 30px rgba(0,0,0,.08)' }
+      theme:{
+        fontFamily:{ sans:['Poppins','ui-sans-serif','system-ui'] },
+        extend:{
+          colors:{ olive:'#2f3b26', sage:'#f6f7f4', neon:'#8cff6a', ink:'#111111' },
+          borderRadius:{ pill:'9999px' },
+          boxShadow:{ soft:'0 8px 24px rgba(0,0,0,.06)' }
         }
       }
     }
   </script>
   <style>
     body{font-family:Poppins,system-ui,sans-serif}
-    .brand{font-family:'Baloo 2',system-ui,sans-serif;letter-spacing:.5px}
+    .brand{font-family:'Baloo 2',system-ui,sans-serif;letter-spacing:.2px}
   </style>
 </head>
-<body class="bg-sage text-olive">
+<body class="bg-white text-ink">
 
-  <!-- ===== Header (matches shop) ===== -->
-  <header class="relative sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3">
-        <img src="assets/logo.png" alt="BRAQZ! — stay Cool!" class="h-10 sm:h-12 w-auto rounded-xl object-contain" />
-        <span class="brand text-2xl font-extrabold text-olive">BRAQZ!</span>
+  <!-- ===== Header (logo-only, matches shop) ===== -->
+  <header class="sticky top-0 z-50 border-b shadow-[0_2px_10px_rgba(0,0,0,0.05)] bg-gradient-to-r from-[#cbd3b9] via-white/80 to-white backdrop-blur relative">
+    <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
+      <a href="index.html" class="flex items-center min-w-0">
+        <!-- Use your feet mark (same as shop) -->
+        <img src="assets/logo-feet.png" alt="BRAQZ logo"
+             class="h-12 sm:h-14 w-auto object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]">
       </a>
-
-      <!-- Hamburger -->
       <button id="menuBtn" aria-label="Open menu"
-        class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-olive hover:bg-olive hover:text-white transition">
+              class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-[#111]/80 hover:bg-[#111] hover:text-white transition">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
           <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
         </svg>
       </button>
     </div>
-
-    <!-- Mobile menu (simple show/hide) -->
     <nav id="mobileMenu"
-         class="hidden absolute top-full inset-x-0 z-[60] border-t bg-white text-olive shadow-md">
+         class="hidden absolute top-full inset-x-0 z-[60] bg-white border-b shadow-md transform origin-top scale-y-0 opacity-0 transition duration-200">
       <div class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
         <a class="py-2" href="shop.html">Shop</a>
-        <div class="grid grid-cols-3 gap-2 text-xs text-olive/80">
+        <div class="grid grid-cols-3 gap-2 text-xs text-black/70">
           <a href="shop.html#Crocs"  class="rounded-full border px-3 py-2 text-center">Crocs</a>
           <a href="shop.html#Clogs"  class="rounded-full border px-3 py-2 text-center">Clogs</a>
           <a href="shop.html#Slides" class="rounded-full border px-3 py-2 text-center">Slides</a>
         </div>
-        <a class="py-2" href="about.html">About BRAQZ!</a>
+        <a class="py-2" href="about.html">About</a>
         <a class="py-2" href="faq.html">FAQ</a>
         <a class="py-2" href="contact.html">Contact</a>
-        <hr class="my-2">
-        <a class="py-2" href="#">Size Guide</a>
-        <a class="py-2" href="#">Returns & Delivery</a>
-        <a class="py-2" href="#">Track Order (WhatsApp)</a>
-        <a class="py-2" href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
       </div>
     </nav>
   </header>
@@ -74,71 +73,98 @@
   <!-- ===== Main ===== -->
   <main class="max-w-6xl mx-auto px-4 py-10">
     <h1 class="brand text-3xl font-extrabold mb-4">About BRAQZ!</h1>
-    <p class="text-olive/80 leading-relaxed max-w-2xl">
-      BRAQZ! is a comfort-first shoe brand for everyday life across Nigeria. Our crocs & clogs are lightweight,
+    <p class="text-ink/70 leading-relaxed max-w-2xl">
+      BRAQZ! is a comfort-first footwear brand for everyday life across Nigeria. Our crocs, clogs & slides are lightweight,
       water-friendly, and made to keep you moving—on campus, at work, or out with friends.
-      <em>“stay Cool!”</em> isn’t just a tagline; it’s how we design.
+      <em>“Stay Cool!”</em> isn’t just a tagline; it’s how we design.
     </p>
 
     <div class="grid md:grid-cols-3 gap-4 text-sm mt-8">
       <div class="rounded-2xl border bg-white p-4 shadow-soft">
         <div class="font-semibold">Quality</div>
-        <div class="text-olive/80">Durable builds for daily wear.</div>
+        <div class="text-ink/60">Durable builds for daily wear.</div>
       </div>
       <div class="rounded-2xl border bg-white p-4 shadow-soft">
         <div class="font-semibold">Comfort</div>
-        <div class="text-olive/80">Breathable, easy to clean.</div>
+        <div class="text-ink/60">Breathable, easy to clean.</div>
       </div>
       <div class="rounded-2xl border bg-white p-4 shadow-soft">
         <div class="font-semibold">Service</div>
-        <div class="text-olive/80">Fast WhatsApp support & delivery.</div>
+        <div class="text-ink/60">Fast WhatsApp support & delivery.</div>
       </div>
+    </div>
+
+    <!-- Optional mini band for social proof / statement -->
+    <div class="mt-10 rounded-xl border bg-sage/50 p-4 text-sm">
+      Built in Nigeria. Nationwide delivery. WhatsApp support 9am–6pm.
     </div>
   </main>
 
   <!-- ===== Footer ===== -->
-  <footer class="border-t bg-white">
-    <div class="max-w-6xl mx-auto px-4 py-8 text-sm flex items-center justify-between">
-      <div>© <span id="year"></span> BRAQZ. All rights reserved.</div>
-      <a href="#" class="underline">Back to top</a>
+  <footer class="border-t">
+    <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-6 text-sm">
+      <div>
+        <img src="assets/logo.png" class="h-7" alt="BRAQZ">
+        <p class="mt-3 text-ink/60">Stay Cool. Comfort-first footwear for everyday life.</p>
+      </div>
+      <div>
+        <div class="font-semibold mb-2">Social</div>
+        <div class="flex items-center gap-4">
+          <a id="igLink" href="https://www.instagram.com/braqzfoot?igsh=dDBvdWFrMzJzOHkw&utm_source=qr" target="_blank" rel="noopener" class="underline">Instagram</a>
+          <a id="ttLink" href="https://www.tiktok.com/@braqzfoot?_r=1&_t=ZS-91764D7k6lj" target="_blank" rel="noopener" class="underline">TikTok</a>
+        </div>
+      </div>
+      <div>
+        <div class="font-semibold mb-2">Contact</div>
+        <a id="footerWa" href="https://wa.me/2348119482042" target="_blank" rel="noopener" class="underline">WhatsApp: 0811 948 2042</a>
+      </div>
     </div>
+    <div class="text-center text-xs text-ink/60 py-6">© <span id="year"></span> BRAQZ. All rights reserved.</div>
   </footer>
 
   <!-- Floating WhatsApp -->
-  <a id="floatWa" href="#" target="_blank"
+  <a id="floatWa" href="https://wa.me/2348119482042?text=Hello%20BRAQZ!" target="_blank"
      class="fixed bottom-5 right-5 rounded-pill bg-neon text-olive px-5 py-3 shadow-soft text-sm font-semibold transition duration-300">
      Chat on WhatsApp
   </a>
 
-  <!-- Shared JS -->
-  <script src="assets/app.js"></script>
+  <!-- Shared (if any) -->
+  <script src="assets/app.js" defer></script>
 
-  <!-- Fallback: runs ONLY if app.js didn’t load -->
+  <!-- Minimal inline: mobile menu + year (works even if app.js fails) -->
   <script>
-    (function(){
-      if (window.BRAQZ_APP_LOADED) return;
+  (function(){
+    // year
+    var y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
 
-      // WhatsApp fallback
-      var floater = document.getElementById('floatWa');
-      if (floater) {
-        var num = '2349136627644';
-        floater.href = 'https://wa.me/' + num + '?text=' + encodeURIComponent('Hello BRAQZ!');
-        var lastY = window.scrollY;
-        window.addEventListener('scroll', function(){
-          var y = window.scrollY;
-          if (y > lastY + 5) { floater.style.transform='translateY(96px) scale(.95)'; floater.style.opacity='0'; }
-          else if (y < lastY - 5) { floater.style.transform=''; floater.style.opacity=''; }
-          lastY = y;
-        }, {passive:true});
+    // animated mobile menu (same as shop)
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    if (btn && menu) {
+      function openMenu(){
+        menu.classList.remove('hidden','scale-y-0','opacity-0');
+        menu.classList.add('scale-y-100','opacity-100');
+        btn.setAttribute('aria-expanded','true');
+        document.addEventListener('keydown',onKey);
+        document.addEventListener('click',onOutside);
       }
-
-      // Simple menu toggle (no animations)
-      var btn  = document.getElementById('menuBtn');
-      var menu = document.getElementById('mobileMenu');
-      if (btn && menu) btn.addEventListener('click', function(){ menu.classList.toggle('hidden'); });
-
-      console.warn('BRAQZ fallback active on this page (app.js not detected).');
-    })();
+      function closeMenu(){
+        menu.classList.remove('scale-y-100','opacity-100');
+        menu.classList.add('scale-y-0','opacity-0');
+        btn.setAttribute('aria-expanded','false');
+        setTimeout(()=> menu.classList.add('hidden'), 200);
+        document.removeEventListener('keydown',onKey);
+        document.removeEventListener('click',onOutside);
+      }
+      function onKey(e){ if(e.key==='Escape') closeMenu(); }
+      function onOutside(e){ if(!menu.contains(e.target) && !btn.contains(e.target)) closeMenu(); }
+      btn.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        const isOpen = menu.classList.contains('scale-y-100');
+        isOpen ? closeMenu() : openMenu();
+      });
+    }
+  })();
   </script>
 </body>
 </html>
