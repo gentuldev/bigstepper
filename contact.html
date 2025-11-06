@@ -6,6 +6,13 @@
   <title>Contact — BRAQZ!</title>
   <link rel="icon" href="assets/logo.png" />
 
+  <!-- SEO -->
+  <meta name="description" content="Contact BRAQZ — WhatsApp orders, Instagram & TikTok. Fast sizing help and delivery options across Nigeria.">
+  <meta property="og:title" content="Contact — BRAQZ!">
+  <meta property="og:description" content="Chat on WhatsApp or reach us on Instagram and TikTok. Stay Cool!">
+  <meta property="og:image" content="https://gentuldev.github.io/bigstepper/assets/logo.png">
+  <meta property="og:type" content="website">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +25,7 @@
       theme: {
         fontFamily: { sans: ['Poppins','ui-sans-serif','system-ui'] },
         extend: {
-          colors: { olive:'#3a4a2b', sage:'#c9d1b4', neon:'#8cff6a' },
+          colors: { olive:'#3a4a2b', sage:'#c9d1b4', neon:'#8cff6a', ink:'#111111' },
           borderRadius: { pill:'9999px' },
           boxShadow: { soft:'0 10px 30px rgba(0,0,0,.08)' }
         }
@@ -32,41 +39,36 @@
 </head>
 <body class="bg-sage text-olive">
 
-  <!-- ===== Header (logo only, left-aligned) ===== -->
-<header class="sticky top-0 z-50 border-b shadow-[0_2px_10px_rgba(0,0,0,0.05)] bg-gradient-to-r from-[#cbd3b9] via-white/80 to-white backdrop-blur relative">
-  <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
-    
-    <!-- Brand: feet logo only (bigger) -->
-    <a href="index.html" class="flex items-center min-w-0">
-      <img src="assets/logo-feet.png" alt="BRAQZ logo"
-           class="h-12 sm:h-14 w-auto object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]">
-    </a>
-
-    <!-- Hamburger -->
-    <button id="menuBtn" aria-label="Open menu"
-            class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-[#111]/80 hover:bg-[#111] hover:text-white transition">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
-      </svg>
-    </button>
-  </div>
-
-  <!-- Slide-down mobile menu -->
-  <nav id="mobileMenu"
-       class="hidden absolute top-full inset-x-0 z-[60] bg-white border-b shadow-md">
-    <div class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
-      <a class="py-2" href="shop.html">Shop</a>
-      <div class="grid grid-cols-3 gap-2 text-xs text-black/70">
-        <a href="shop.html#Crocs"  class="rounded-full border px-3 py-2 text-center">Crocs</a>
-        <a href="shop.html#Clogs"  class="rounded-full border px-3 py-2 text-center">Clogs</a>
-        <a href="shop.html#Slides" class="rounded-full border px-3 py-2 text-center">Slides</a>
-      </div>
-      <a class="py-2" href="about.html">About</a>
-      <a class="py-2" href="faq.html">FAQ</a>
-      <a class="py-2" href="contact.html">Contact</a>
+  <!-- ===== Header (kept as you have it) ===== -->
+  <header class="sticky top-0 z-50 border-b shadow-[0_2px_10px_rgba(0,0,0,0.05)] bg-gradient-to-r from-[#cbd3b9] via-white/80 to-white backdrop-blur relative">
+    <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
+      <a href="index.html" class="flex items-center min-w-0">
+        <img src="assets/logo-feet.png" alt="BRAQZ logo"
+             class="h-12 sm:h-14 w-auto object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]">
+      </a>
+      <button id="menuBtn" aria-label="Open menu"
+              class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-[#111]/80 hover:bg-[#111] hover:text-white transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+        </svg>
+      </button>
     </div>
-  </nav>
-</header>
+
+    <!-- Mobile menu -->
+    <nav id="mobileMenu" class="hidden absolute top-full inset-x-0 z-[60] bg-white border-b shadow-md">
+      <div class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
+        <a class="py-2" href="shop.html">Shop</a>
+        <div class="grid grid-cols-3 gap-2 text-xs text-black/70">
+          <a href="shop.html#Crocs"  class="rounded-full border px-3 py-2 text-center">Crocs</a>
+          <a href="shop.html#Clogs"  class="rounded-full border px-3 py-2 text-center">Clogs</a>
+          <a href="shop.html#Slides" class="rounded-full border px-3 py-2 text-center">Slides</a>
+        </div>
+        <a class="py-2" href="about.html">About</a>
+        <a class="py-2" href="faq.html">FAQ</a>
+        <a class="py-2" href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
 
   <!-- ===== Main ===== -->
   <main class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-6">
@@ -75,13 +77,38 @@
       <p class="text-olive/80">Chat us on WhatsApp for quick sizing help and delivery options across Nigeria.</p>
 
       <div class="grid sm:grid-cols-2 gap-4 text-sm">
+        <!-- WhatsApp -->
         <div class="rounded-2xl border bg-white p-4 shadow-soft">
           <div class="font-medium">WhatsApp</div>
-          <a id="contactWa" href="#" target="_blank" class="underline text-olive/80 break-all">wa.me/2349136627644</a>
+          <a id="contactWa"
+             href="https://wa.me/2348119482042?text=Hello%20BRAQZ!"
+             target="_blank"
+             class="underline text-olive/80 break-all">wa.me/2348119482042</a>
+          <div class="mt-1 text-xs text-olive/60">Hours: Mon–Sat, 9am–6pm</div>
         </div>
+
+        <!-- Email -->
         <div class="rounded-2xl border bg-white p-4 shadow-soft">
           <div class="font-medium">Email</div>
           <a id="emailLink" href="mailto:gentulwrldwide@gmail.com" class="underline text-olive/80">gentulwrldwide@gmail.com</a>
+        </div>
+
+        <!-- Instagram -->
+        <div class="rounded-2xl border bg-white p-4 shadow-soft">
+          <div class="font-medium">Instagram</div>
+          <a id="igLink"
+             href="https://www.instagram.com/braqzfoot?igsh=dDBvdWFrMzJzOHkw&utm_source=qr"
+             target="_blank" rel="noopener"
+             class="underline text-olive/80 break-all">instagram.com/braqzfoot</a>
+        </div>
+
+        <!-- TikTok -->
+        <div class="rounded-2xl border bg-white p-4 shadow-soft">
+          <div class="font-medium">TikTok</div>
+          <a id="ttLink"
+             href="https://www.tiktok.com/@braqzfoot?_r=1&_t=ZS-91764D7k6lj"
+             target="_blank" rel="noopener"
+             class="underline text-olive/80 break-all">tiktok.com/@braqzfoot</a>
         </div>
       </div>
     </section>
@@ -102,7 +129,9 @@
   </footer>
 
   <!-- Floating WhatsApp -->
-  <a id="floatWa" href="#" target="_blank"
+  <a id="floatWa"
+     href="https://wa.me/2348119482042?text=Hello%20BRAQZ!"
+     target="_blank"
      class="fixed bottom-5 right-5 rounded-pill bg-neon text-olive px-5 py-3 shadow-soft text-sm font-semibold transition duration-300">
      Chat on WhatsApp
   </a>
@@ -115,10 +144,10 @@
     (function(){
       if (window.BRAQZ_APP_LOADED) return;
 
-      // WhatsApp fallback
+      // WhatsApp fallback (new number)
       var floater = document.getElementById('floatWa');
       if (floater) {
-        var num = '2349136627644';
+        var num = '2348119482042';
         floater.href = 'https://wa.me/' + num + '?text=' + encodeURIComponent('Hello BRAQZ!');
         var lastY = window.scrollY;
         window.addEventListener('scroll', function(){
@@ -133,6 +162,9 @@
       var btn  = document.getElementById('menuBtn');
       var menu = document.getElementById('mobileMenu');
       if (btn && menu) btn.addEventListener('click', function(){ menu.classList.toggle('hidden'); });
+
+      // Year
+      var y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
 
       console.warn('BRAQZ fallback active on this page (app.js not detected).');
     })();
