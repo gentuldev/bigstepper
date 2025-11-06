@@ -6,6 +6,13 @@
   <title>FAQ — BRAQZ!</title>
   <link rel="icon" href="assets/logo.png" />
 
+  <!-- SEO -->
+  <meta name="description" content="BRAQZ — Frequently Asked Questions about orders, delivery, and payments.">
+  <meta property="og:title" content="FAQ — BRAQZ!">
+  <meta property="og:description" content="Your top questions about BRAQZ footwear, delivery, and payment options.">
+  <meta property="og:image" content="https://gentuldev.github.io/bigstepper/assets/logo.png">
+  <meta property="og:type" content="website">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,58 +22,67 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      theme: {
-        fontFamily: { sans: ['Poppins','ui-sans-serif','system-ui'] },
-        extend: {
-          colors: { olive:'#3a4a2b', sage:'#c9d1b4', neon:'#8cff6a' },
-          borderRadius: { pill:'9999px' },
-          boxShadow: { soft:'0 10px 30px rgba(0,0,0,.08)' }
+      theme:{
+        fontFamily:{ sans:['Poppins','ui-sans-serif','system-ui'] },
+        extend:{
+          colors:{ olive:'#2f3b26', sage:'#f6f7f4', neon:'#8cff6a', ink:'#111111' },
+          borderRadius:{ pill:'9999px' },
+          boxShadow:{ soft:'0 8px 24px rgba(0,0,0,.06)' }
         }
       }
     }
   </script>
   <style>
     body{font-family:Poppins,system-ui,sans-serif}
-    .brand{font-family:'Baloo 2',system-ui,sans-serif;letter-spacing:.5px}
+    .brand{font-family:'Baloo 2',system-ui,sans-serif;letter-spacing:.2px}
+    details summary::-webkit-details-marker{display:none}
+    details[open] summary svg{transform:rotate(180deg)}
+    /* FAQ animation body */
+    .faq-body{
+      overflow:hidden;
+      max-height:0;
+      opacity:0;
+      transition:max-height .35s ease, opacity .25s ease;
+      will-change:max-height;
+    }
+    details[open] .faq-body{
+      /* max-height set dynamically by JS; keep a fallback */
+      opacity:1;
+    }
+    @media (prefers-reduced-motion: reduce){
+      .faq-body{transition:none}
+    }
   </style>
 </head>
-<body class="bg-sage text-olive">
+<body class="bg-white text-ink">
 
-  <!-- ===== Header ===== -->
-  <header class="relative sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3">
-        <img src="assets/logo.png" alt="BRAQZ! — stay Cool!" class="h-10 sm:h-12 w-auto rounded-xl object-contain" />
-        <span class="brand text-2xl font-extrabold text-olive">BRAQZ!</span>
+  <!-- ===== Header (matches other pages) ===== -->
+  <header class="sticky top-0 z-50 border-b shadow-[0_2px_10px_rgba(0,0,0,0.05)] bg-gradient-to-r from-[#cbd3b9] via-white/80 to-white backdrop-blur relative">
+    <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
+      <a href="index.html" class="flex items-center min-w-0">
+        <img src="assets/logo-feet.png" alt="BRAQZ logo"
+             class="h-12 sm:h-14 w-auto object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]">
       </a>
-
-      <!-- Hamburger -->
       <button id="menuBtn" aria-label="Open menu"
-        class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-olive hover:bg-olive hover:text-white transition">
+              class="inline-flex items-center justify-center w-11 h-11 rounded-xl border text-[#111]/80 hover:bg-[#111] hover:text-white transition">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
           <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
         </svg>
       </button>
     </div>
 
-    <!-- Mobile menu -->
     <nav id="mobileMenu"
-         class="hidden absolute top-full inset-x-0 z-[60] border-t bg-white text-olive shadow-md">
+         class="hidden absolute top-full inset-x-0 z-[60] bg-white border-b shadow-md transform origin-top scale-y-0 opacity-0 transition duration-200">
       <div class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
         <a class="py-2" href="shop.html">Shop</a>
-        <div class="grid grid-cols-3 gap-2 text-xs text-olive/80">
+        <div class="grid grid-cols-3 gap-2 text-xs text-black/70">
           <a href="shop.html#Crocs"  class="rounded-full border px-3 py-2 text-center">Crocs</a>
           <a href="shop.html#Clogs"  class="rounded-full border px-3 py-2 text-center">Clogs</a>
           <a href="shop.html#Slides" class="rounded-full border px-3 py-2 text-center">Slides</a>
         </div>
-        <a class="py-2" href="about.html">About BRAQZ!</a>
+        <a class="py-2" href="about.html">About</a>
         <a class="py-2" href="faq.html">FAQ</a>
         <a class="py-2" href="contact.html">Contact</a>
-        <hr class="my-2">
-        <a class="py-2" href="#">Size Guide</a>
-        <a class="py-2" href="#">Returns & Delivery</a>
-        <a class="py-2" href="#">Track Order (WhatsApp)</a>
-        <a class="py-2" href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
       </div>
     </nav>
   </header>
@@ -74,36 +90,97 @@
   <!-- ===== Main ===== -->
   <main class="max-w-6xl mx-auto px-4 py-10">
     <h1 class="brand text-3xl font-extrabold mb-6">Frequently Asked Questions</h1>
-    <div class="divide-y rounded-2xl border bg-white shadow-soft">
-      <details class="p-4" open>
-        <summary class="font-medium cursor-pointer">Do you deliver across Nigeria?</summary>
-        <div class="mt-2 text-sm text-olive/80">Yes — we deliver nationwide. Delivery time and fees vary by state.</div>
+
+    <div class="faq divide-y rounded-2xl border bg-white shadow-soft overflow-hidden">
+      <details class="p-5 transition-all hover:bg-sage/50">
+        <summary class="font-semibold cursor-pointer flex items-center justify-between">
+          <span>Do you deliver across Nigeria?</span>
+          <svg class="w-5 h-5 text-olive transition-transform" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </summary>
+        <div class="faq-body">
+          <div class="mt-2 text-sm text-ink/70">Yes — we deliver nationwide. Delivery time and fees vary by state.</div>
+        </div>
       </details>
-      <details class="p-4">
-        <summary class="font-medium cursor-pointer">How do I order?</summary>
-        <div class="mt-2 text-sm text-olive/80">Tap the “Chat on WhatsApp” button and send your size and preferred color.</div>
+
+      <details class="p-5 transition-all hover:bg-sage/50">
+        <summary class="font-semibold cursor-pointer flex items-center justify-between">
+          <span>How do I order?</span>
+          <svg class="w-5 h-5 text-olive transition-transform" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </summary>
+        <div class="faq-body">
+          <div class="mt-2 text-sm text-ink/70">Tap the “Chat on WhatsApp” button and send your size and preferred color.</div>
+        </div>
       </details>
-      <details class="p-4">
-        <summary class="font-medium cursor-pointer">What sizes do you stock?</summary>
-        <div class="mt-2 text-sm text-olive/80">We usually stock EU 36–46. You can ask us directly if your size isn’t listed.</div>
+
+      <details class="p-5 transition-all hover:bg-sage/50">
+        <summary class="font-semibold cursor-pointer flex items-center justify-between">
+          <span>What sizes do you stock?</span>
+          <svg class="w-5 h-5 text-olive transition-transform" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </summary>
+        <div class="faq-body">
+          <div class="mt-2 text-sm text-ink/70">We usually stock EU 36–46. You can ask us directly if your size isn’t listed.</div>
+        </div>
       </details>
-      <details class="p-4">
-        <summary class="font-medium cursor-pointer">What payment options are available?</summary>
-        <div class="mt-2 text-sm text-olive/80">We currently accept payment on delivery (selected locations) and secure online transfer.</div>
+
+      <details class="p-5 transition-all hover:bg-sage/50">
+        <summary class="font-semibold cursor-pointer flex items-center justify-between">
+          <span>What payment options are available?</span>
+          <svg class="w-5 h-5 text-olive transition-transform" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </summary>
+        <div class="faq-body">
+          <div class="mt-2 text-sm text-ink/70">
+            We accept all kinds of payment — transfers, debit cards, and cash on delivery (selected locations).
+          </div>
+        </div>
+      </details>
+
+      <details class="p-5 transition-all hover:bg-sage/50">
+        <summary class="font-semibold cursor-pointer flex items-center justify-between">
+          <span>Do you offer returns or exchanges?</span>
+          <svg class="w-5 h-5 text-olive transition-transform" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </summary>
+        <div class="faq-body">
+          <div class="mt-2 text-sm text-ink/70">Yes — exchanges are allowed within 48 hours of delivery if the size doesn’t fit.</div>
+        </div>
       </details>
     </div>
   </main>
 
   <!-- ===== Footer ===== -->
-  <footer class="border-t bg-white">
-    <div class="max-w-6xl mx-auto px-4 py-8 text-sm flex items-center justify-between">
-      <div>© <span id="year"></span> BRAQZ. All rights reserved.</div>
-      <a href="#" class="underline">Back to top</a>
+  <footer class="border-t">
+    <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-6 text-sm">
+      <div>
+        <img src="assets/logo.png" class="h-7" alt="BRAQZ">
+        <p class="mt-3 text-ink/60">Stay Cool. Comfort-first footwear for everyday life.</p>
+      </div>
+      <div>
+        <div class="font-semibold mb-2">Social</div>
+        <div class="flex items-center gap-4">
+          <a href="https://www.instagram.com/braqzfoot?igsh=dDBvdWFrMzJzOHkw&utm_source=qr" target="_blank" class="underline">Instagram</a>
+          <a href="https://www.tiktok.com/@braqzfoot?_r=1&_t=ZS-91764D7k6lj" target="_blank" class="underline">TikTok</a>
+        </div>
+      </div>
+      <div>
+        <div class="font-semibold mb-2">Contact</div>
+        <a href="https://wa.me/2348119482042" target="_blank" class="underline">WhatsApp: 0811 948 2042</a>
+      </div>
     </div>
+    <div class="text-center text-xs text-ink/60 py-6">© <span id="year"></span> BRAQZ. All rights reserved.</div>
   </footer>
 
   <!-- Floating WhatsApp -->
-  <a id="floatWa" href="#" target="_blank"
+  <a id="floatWa" href="https://wa.me/2348119482042?text=Hello%20BRAQZ!"
+     target="_blank"
      class="fixed bottom-5 right-5 rounded-pill bg-neon text-olive px-5 py-3 shadow-soft text-sm font-semibold transition duration-300">
      Chat on WhatsApp
   </a>
@@ -111,31 +188,73 @@
   <!-- Shared JS -->
   <script src="assets/app.js"></script>
 
-  <!-- Fallback: runs ONLY if app.js didn’t load -->
+  <!-- Minimal inline fallback + FAQ animation -->
   <script>
     (function(){
-      if (window.BRAQZ_APP_LOADED) return;
-
-      // WhatsApp fallback
-      var floater = document.getElementById('floatWa');
-      if (floater) {
-        var num = '2349136627644';
-        floater.href = 'https://wa.me/' + num + '?text=' + encodeURIComponent('Hello BRAQZ!');
-        var lastY = window.scrollY;
-        window.addEventListener('scroll', function(){
-          var y = window.scrollY;
-          if (y > lastY + 5) { floater.style.transform='translateY(96px) scale(.95)'; floater.style.opacity='0'; }
-          else if (y < lastY - 5) { floater.style.transform=''; floater.style.opacity=''; }
-          lastY = y;
-        }, {passive:true});
+      if (!window.BRAQZ_APP_LOADED){
+        var y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+        var btn=document.getElementById('menuBtn'), menu=document.getElementById('mobileMenu');
+        if(btn&&menu){
+          btn.addEventListener('click',e=>{
+            e.stopPropagation();
+            const open = menu.classList.contains('scale-y-100');
+            if(open){
+              menu.classList.remove('scale-y-100','opacity-100');
+              menu.classList.add('scale-y-0','opacity-0');
+              setTimeout(()=>menu.classList.add('hidden'),200);
+            }else{
+              menu.classList.remove('hidden','scale-y-0','opacity-0');
+              menu.classList.add('scale-y-100','opacity-100');
+            }
+          });
+        }
+        var floater=document.getElementById('floatWa');
+        if(floater) floater.href='https://wa.me/2348119482042?text='+encodeURIComponent('Hello BRAQZ!');
       }
 
-      // Simple menu toggle (no animations)
-      var btn  = document.getElementById('menuBtn');
-      var menu = document.getElementById('mobileMenu');
-      if (btn && menu) btn.addEventListener('click', function(){ menu.classList.toggle('hidden'); });
+      // ===== Smooth FAQ animation =====
+      const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.querySelectorAll('.faq details').forEach(d=>{
+        const body = d.querySelector('.faq-body');
+        if(!body) return;
 
-      console.warn('BRAQZ fallback active on this page (app.js not detected).');
+        // set initial height
+        const setHeight = () => {
+          if(d.open){
+            body.style.maxHeight = body.scrollHeight + 'px';
+            body.style.opacity = '1';
+          }else{
+            body.style.maxHeight = '0px';
+            body.style.opacity = '0';
+          }
+        };
+        setHeight();
+
+        d.addEventListener('toggle', ()=>{
+          if(prefersReduce){ setHeight(); return; }
+          if(d.open){
+            // expand
+            body.style.maxHeight = '0px';
+            body.style.opacity = '0';
+            requestAnimationFrame(()=>{
+              body.style.maxHeight = body.scrollHeight + 'px';
+              body.style.opacity = '1';
+            });
+          }else{
+            // collapse
+            body.style.maxHeight = body.scrollHeight + 'px';
+            requestAnimationFrame(()=>{
+              body.style.maxHeight = '0px';
+              body.style.opacity = '0';
+            });
+          }
+        });
+
+        // keep height accurate on resize for open items
+        window.addEventListener('resize', ()=>{
+          if(d.open) body.style.maxHeight = body.scrollHeight + 'px';
+        });
+      });
     })();
   </script>
 </body>
