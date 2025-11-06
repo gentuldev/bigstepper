@@ -1,6 +1,6 @@
 // ========== BRAND ==========
 window.BRAQZ_APP_LOADED = true;  // debug flag so pages know app.js ran
-const BRAND = { name: 'BRAQZ!', whatsapp: '+2349136627644', email: 'gentulwrldwide@gmail.com' };
+const BRAND = { name: 'BRAQZ!', whatsapp: '+2348119482042', email: 'gentulwrldwide@gmail.com' };
 
 // Footer year
 const y = document.getElementById('year');
